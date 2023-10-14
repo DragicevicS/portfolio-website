@@ -1,31 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>(() =>
     localStorage.getItem("theme")
   );
 
-  const themeIcon = document.getElementById("theme-icon");
+  const svgRef = useRef<SVGSVGElement>(null);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     localStorage.setItem("theme", newTheme);
     setTheme(newTheme);
 
-    themeIcon?.classList.add(
-      "rotate-[360deg]",
-      "duration-500",
-      "ease",
-      "scale-125"
-    );
-    setTimeout(() => {
-      themeIcon?.classList.remove(
-        "rotate-[360deg]",
-        "duration-500",
-        "ease",
-        "scale-125"
-      );
-    }, 501);
+    const svgElement = svgRef.current;
+
+    if (svgElement) {
+      svgElement.classList.add("rotate");
+
+      setTimeout(() => {
+        svgElement.classList.remove("rotate");
+      }, 500);
+    }
   };
 
   useEffect(() => {
@@ -40,7 +35,7 @@ const useTheme = () => {
     }
   }, [theme]);
 
-  return { theme, toggleTheme };
+  return { theme, toggleTheme, svgRef };
 };
 
 export default useTheme;

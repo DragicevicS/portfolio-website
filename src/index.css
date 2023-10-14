@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pridi&family=Tilt+Neon&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,4 +8,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Theme icon rotation */
+
+.theme-icon {
+  transition: transform 0.5s ease-out;
+}
+
+.theme-icon.rotate {
+  transform: rotate(360deg) scale(1.25);
 }
