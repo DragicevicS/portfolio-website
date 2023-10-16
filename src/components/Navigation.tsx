@@ -4,18 +4,23 @@ const Navigation = () => {
   const { theme, toggleTheme, svgRef } = useTheme();
 
   return (
-    <nav className="fixed right-0 flex flex-col items-center gap-3 w-13 mt-3 h-screen ease-out duration-700">
+    <nav className="fixed right-0 flex flex-col items-center gap-3 w-13 mt-3 h-screen animate-fadeIn">
       <div className="flex flex-col gap-1 w-full p-4 cursor-pointer">
         <hr className="border-2 border-black dark:border-white rounded-md" />
         <hr className="border-2 border-black dark:border-white rounded-md" />
         <hr className="border-2 border-black dark:border-white rounded-md" />
       </div>
-      <div className="w-full p-4">
+      <div
+        className="w-full p-4"
+        title={
+          theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill={theme === "dark" ? "white" : "black"}
-          className="theme-icon w-6 h-6 cursor-pointer hover:fill-blue"
+          className="w-6 h-6 transition-transform duration-500 ease-out cursor-pointer hover:fill-red"
           ref={svgRef}
           onClick={toggleTheme}
         >
@@ -24,6 +29,23 @@ const Navigation = () => {
           ) : (
             <path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
           )}
+        </svg>
+      </div>
+      <div
+        className="mt-auto pb-4 ease duration-200 hover:scale-110"
+        title="Scroll to the top"
+        onClick={() => {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill={theme === "dark" ? "white" : "black"}
+          className="w-10 h-10 hover:fill-red cursor-pointer"
+        >
+          <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
         </svg>
       </div>
     </nav>

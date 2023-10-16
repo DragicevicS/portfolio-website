@@ -15,10 +15,10 @@ const useTheme = () => {
     const svgElement = svgRef.current;
 
     if (svgElement) {
-      svgElement.classList.add("rotate");
+      svgElement.classList.add("rotate-[360deg]", "scale-125");
 
       setTimeout(() => {
-        svgElement.classList.remove("rotate");
+        svgElement.classList.remove("rotate-[360deg]", "scale-125");
       }, 500);
     }
   };

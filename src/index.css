@@ -5,17 +5,15 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  @apply m-0 p-0 box-border scroll-smooth;
 }
 
-/* Theme icon rotation */
+/* Scrollbar */
 
-.theme-icon {
-  transition: transform 0.5s ease-out;
+::-webkit-scrollbar {
+  @apply w-3 bg-black;
 }
 
-.theme-icon.rotate {
-  transform: rotate(360deg) scale(1.25);
+::-webkit-scrollbar-thumb {
+  @apply bg-[#555] hover:bg-[#888];
 }
