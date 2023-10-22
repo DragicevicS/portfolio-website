@@ -1,9 +1,19 @@
 import { useState, useRef, useEffect } from "react";
 
 const useTheme = () => {
-  const [theme, setTheme] = useState<string | null>(() =>
-    localStorage.getItem("theme")
-  );
+  const getInitialTheme = () => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) return storedTheme;
+
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    localStorage.setItem("theme", systemTheme);
+    return systemTheme;
+  };
+
+  const [theme, setTheme] = useState<string>(getInitialTheme);
 
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -22,6 +32,14 @@ const useTheme = () => {
       }, 500);
     }
   };
+
+  useEffect(() => {
+    const svgElement = svgRef.current;
+
+    if (svgElement) {
+      svgElement.style.fill = theme === "dark" ? "white" : "black";
+    }
+  }, [theme]);
 
   useEffect(() => {
     document.documentElement.classList.remove("light", "dark");
