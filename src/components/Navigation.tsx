@@ -5,10 +5,10 @@ const Navigation = () => {
 
   return (
     <nav className="fixed right-0 flex flex-col items-center gap-3 w-13 mt-3 h-screen animate-fadeIn">
-      <div className="flex flex-col gap-1 w-full p-4 cursor-pointer">
-        <hr className="border-2 border-black dark:border-white rounded-md" />
-        <hr className="border-2 border-black dark:border-white rounded-md" />
-        <hr className="border-2 border-black dark:border-white rounded-md" />
+      <div className="group flex flex-col gap-1 w-full p-4 cursor-pointer">
+        <div className="w-full h-1 bg-black dark:bg-white rounded-md group-hover:bg-red group-hover:w-1/2 group-hover:-rotate-[30deg] group-hover:translate-y-1 ease duration-300"></div>
+        <div className="w-5/6 h-1 ml-auto bg-black dark:bg-white rounded-md group-hover:bg-red group-hover:w-full ease duration-300"></div>
+        <div className="w-full h-1 bg-black dark:bg-white rounded-md group-hover:bg-red group-hover:w-1/2 group-hover:rotate-[30deg] group-hover:-translate-y-1 ease duration-300"></div>
       </div>
       <div
         className="w-full p-4"
