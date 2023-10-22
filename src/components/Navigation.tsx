@@ -4,14 +4,14 @@ const Navigation = () => {
   const { theme, toggleTheme, svgRef } = useTheme();
 
   return (
-    <nav className="fixed right-0 flex flex-col items-center gap-3 w-13 mt-3 h-screen animate-fadeIn">
-      <div className="group flex flex-col gap-1 w-full p-4 cursor-pointer">
+    <nav className="fixed right-0 flex flex-col items-center gap-4 md:gap-1 w-9 md:w-14 p-2 md:p-0 mt-1 md:mt-3 h-screen animate-fadeIn">
+      <div className="group flex flex-col gap-1 w-full md:p-4 cursor-pointer">
         <div className="w-full h-1 bg-black dark:bg-white rounded-md group-hover:bg-red group-hover:w-1/2 group-hover:-rotate-[30deg] group-hover:translate-y-1 ease duration-300"></div>
         <div className="w-5/6 h-1 ml-auto bg-black dark:bg-white rounded-md group-hover:bg-red group-hover:w-full ease duration-300"></div>
         <div className="w-full h-1 bg-black dark:bg-white rounded-md group-hover:bg-red group-hover:w-1/2 group-hover:rotate-[30deg] group-hover:-translate-y-1 ease duration-300"></div>
       </div>
       <div
-        className="w-full p-4"
+        className="w-full md:p-4"
         title={
           theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
         }
@@ -20,7 +20,7 @@ const Navigation = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill={theme === "dark" ? "white" : "black"}
-          className="w-6 h-6 transition-transform duration-500 ease-out cursor-pointer hover:fill-red"
+          className="w-5 md:w-6 h-5 md:h-6 transition-transform duration-500 ease-out cursor-pointer hover:fill-red"
           ref={svgRef}
           onClick={toggleTheme}
         >
@@ -32,7 +32,7 @@ const Navigation = () => {
         </svg>
       </div>
       <div
-        className="mt-auto pb-4 ease duration-200 hover:scale-110"
+        className="mt-auto md:pb-4 ease duration-200 hover:scale-110"
         title="Scroll to the top"
         onClick={() => {
           document.body.scrollTop = 0;
@@ -43,7 +43,7 @@ const Navigation = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill={theme === "dark" ? "white" : "black"}
-          className="w-10 h-10 hover:fill-red cursor-pointer"
+          className="w-7 md:w-10 h-7 md:h-10 hover:fill-red cursor-pointer"
         >
           <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
         </svg>
