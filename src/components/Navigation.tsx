@@ -1,8 +1,10 @@
-import useTheme from "../hooks/useTheme";
+type NavProps = {
+  theme: string;
+  toggleTheme: () => void;
+  svgRef: React.RefObject<SVGSVGElement>;
+};
 
-const Navigation = () => {
-  const { theme, toggleTheme, svgRef } = useTheme();
-
+const Navigation: React.FC<NavProps> = ({ theme, toggleTheme, svgRef }) => {
   return (
     <nav className="fixed right-0 flex flex-col items-center gap-4 md:gap-1 w-9 md:w-14 p-2 md:p-0 mt-1 md:mt-3 h-screen animate-fadeIn">
       <div className="group flex flex-col gap-1 w-full md:p-4 cursor-pointer">
@@ -32,7 +34,7 @@ const Navigation = () => {
         </svg>
       </div>
       <div
-        className="mt-auto md:pb-4 ease duration-200 hover:scale-110"
+        className="mt-auto pb-4 ease duration-200 hover:scale-110"
         title="Scroll to the top"
         onClick={() => {
           document.body.scrollTop = 0;
