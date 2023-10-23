@@ -4,7 +4,7 @@ type MainProps = {
 
 const Main = ({ firstSectionRef }: MainProps) => {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col gap-96">
       <section ref={firstSectionRef}>
         <h2>About Me</h2>
       </section>
