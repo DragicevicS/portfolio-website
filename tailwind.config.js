@@ -6,12 +6,13 @@ export default {
     colors: {
       white: "#f2f2f2",
       black: "#0d0d0d",
-      red: "#e44e58",
-      blue: "#0077b5",
-      yellow: "#ffff00",
-      lightGray: "#2e3031",
-      darkGray: "#181a1b",
+      darkerRed: "#D3222E",
+      lighterRed: "#E7555E",
+      darkerBlue: "#0073AD",
+      lighterBlue: "#009CF0",
       darkBlue: "#002333",
+      lighterGray: "#2C2E2F",
+      darkGray: "#181a1b",
     },
     fontFamily: {
       sans: ["Tilt Neon", "sans-serif"],

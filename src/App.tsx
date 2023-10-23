@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Loading from "./components/Loading";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
@@ -9,6 +9,7 @@ import useTheme from "./hooks/useTheme";
 function App() {
   const { theme, toggleTheme, svgRef } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
+  const firstSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 2500);
@@ -17,12 +18,12 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <Loading theme={theme} />
       ) : (
         <>
           <Navigation theme={theme} toggleTheme={toggleTheme} svgRef={svgRef} />
-          <Header />
-          <Main />
+          <Header theme={theme} firstSectionRef={firstSectionRef} />
+          <Main firstSectionRef={firstSectionRef} />
           <Footer />
         </>
       )}

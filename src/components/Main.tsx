@@ -1,7 +1,11 @@
-const Main = () => {
+type MainProps = {
+  firstSectionRef: React.RefObject<HTMLElement>;
+};
+
+const Main = ({ firstSectionRef }: MainProps) => {
   return (
     <main className="flex flex-col">
-      <section>
+      <section ref={firstSectionRef}>
         <h2>About Me</h2>
       </section>
       <section>

@@ -15,7 +15,7 @@ const useTheme = () => {
 
   const [theme, setTheme] = useState<string>(getInitialTheme);
 
-  const svgRef = useRef<SVGSVGElement>(null);
+  const svgRef = useRef<HTMLImageElement>(null);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
