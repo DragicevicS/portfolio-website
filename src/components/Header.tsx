@@ -6,6 +6,16 @@ type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ theme }) => {
+  const scrollToFirstSection = () => {
+    const aboutSection = document.getElementById("about");
+
+    if (aboutSection) {
+      const offset = window.innerWidth < 768 ? 46 : 58;
+      const y = aboutSection.offsetTop - offset;
+
+      window.scrollTo({ top: y });
+    }
+  };
   return (
     <header
       id="header"
@@ -17,17 +27,16 @@ const Header: React.FC<HeaderProps> = ({ theme }) => {
           Dragićević
         </span>
       </h1>
-      <a href="#about">
-        <img
-          src={
-            theme === "dark"
-              ? darkChevronTripleDownIcon
-              : lightChevronTripleDownIcon
-          }
-          alt="Scroll down"
-          className="w-7 md:w-10 h-7 md:h-10 cursor-pointer animate-fadeDown"
-        />
-      </a>
+      <img
+        src={
+          theme === "dark"
+            ? darkChevronTripleDownIcon
+            : lightChevronTripleDownIcon
+        }
+        alt="Scroll down"
+        className="w-7 md:w-10 h-7 md:h-10 cursor-pointer animate-fadeDown"
+        onClick={scrollToFirstSection}
+      />
     </header>
   );
 };
