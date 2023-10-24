@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import useTheme from "./hooks/useTheme";
 
 function App() {
-  const { theme, toggleTheme, svgRef } = useTheme();
+  const { theme, toggleTheme, imgRef } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const firstSectionRef = useRef<HTMLElement | null>(null);
 
@@ -21,7 +21,7 @@ function App() {
         <Loading theme={theme} />
       ) : (
         <>
-          <Navigation theme={theme} toggleTheme={toggleTheme} svgRef={svgRef} />
+          <Navigation theme={theme} toggleTheme={toggleTheme} imgRef={imgRef} />
           <Header theme={theme} firstSectionRef={firstSectionRef} />
           <Main firstSectionRef={firstSectionRef} />
           <Footer />

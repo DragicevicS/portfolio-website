@@ -15,29 +15,29 @@ const useTheme = () => {
 
   const [theme, setTheme] = useState<string>(getInitialTheme);
 
-  const svgRef = useRef<HTMLImageElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     localStorage.setItem("theme", newTheme);
     setTheme(newTheme);
 
-    const svgElement = svgRef.current;
+    const imgElement = imgRef.current;
 
-    if (svgElement) {
-      svgElement.classList.add("rotate-[360deg]", "scale-125");
+    if (imgElement) {
+      imgElement.classList.add("rotate-[360deg]", "scale-125");
 
       setTimeout(() => {
-        svgElement.classList.remove("rotate-[360deg]", "scale-125");
+        imgElement.classList.remove("rotate-[360deg]", "scale-125");
       }, 500);
     }
   };
 
   useEffect(() => {
-    const svgElement = svgRef.current;
+    const imgElement = imgRef.current;
 
-    if (svgElement) {
-      svgElement.style.fill = theme === "dark" ? "white" : "black";
+    if (imgElement) {
+      imgElement.style.fill = theme === "dark" ? "white" : "black";
     }
   }, [theme]);
 
@@ -53,7 +53,7 @@ const useTheme = () => {
     }
   }, [theme]);
 
-  return { theme, toggleTheme, svgRef };
+  return { theme, toggleTheme, imgRef };
 };
 
 export default useTheme;

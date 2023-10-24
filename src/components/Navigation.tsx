@@ -7,10 +7,10 @@ import darkChevronUpIcon from "../assets/dark/dark-chevron-up.svg";
 type NavProps = {
   theme: string;
   toggleTheme: () => void;
-  svgRef: React.RefObject<HTMLImageElement>;
+  imgRef: React.RefObject<HTMLImageElement>;
 };
 
-const Navigation = ({ theme, toggleTheme, svgRef }: NavProps) => {
+const Navigation = ({ theme, toggleTheme, imgRef }: NavProps) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Navigation = ({ theme, toggleTheme, svgRef }: NavProps) => {
           theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
         }
         className="w-5 md:w-6 h-5 md:h-6 duration-500 ease-out hover:scale-110 cursor-pointer"
-        ref={svgRef}
+        ref={imgRef}
         onClick={toggleTheme}
       />
       {showScrollTop && (
