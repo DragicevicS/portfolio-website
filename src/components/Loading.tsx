@@ -4,7 +4,7 @@ type LoadProps = {
   theme: string;
 };
 
-const Loading = ({ theme }: LoadProps) => {
+const Loading: React.FC<LoadProps> = ({ theme }) => {
   return (
     <div className="flex justify-center items-center w-screen h-screen">
       <MrMiyagi

@@ -1,22 +1,24 @@
+import React, { RefObject } from "react";
+
 type MainProps = {
-  firstSectionRef: React.RefObject<HTMLElement>;
+  sectionRefs: RefObject<HTMLElement>[];
 };
 
-const Main = ({ firstSectionRef }: MainProps) => {
+const Main: React.FC<MainProps> = ({ sectionRefs }) => {
+  const sections = ["about", "skills", "projects", "contact"];
+
   return (
-    <main className="flex flex-col gap-96">
-      <section ref={firstSectionRef}>
-        <h2>About Me</h2>
-      </section>
-      <section>
-        <h2>Skills</h2>
-      </section>
-      <section>
-        <h2>Projects</h2>
-      </section>
-      <section>
-        <h2>Contact</h2>
-      </section>
+    <main className="flex flex-col items-center">
+      {sections.map((section, i) => (
+        <section
+          key={section}
+          id={section}
+          ref={sectionRefs[i]}
+          className="h-[550px] italic font-extrabold tracking-widest"
+        >
+          <h2>{section.toUpperCase()}</h2>
+        </section>
+      ))}
     </main>
   );
 };

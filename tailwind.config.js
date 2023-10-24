@@ -35,5 +35,29 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".underline-animation::after": {
+          content: '""',
+          display: "block",
+          height: "1px",
+          background: "#0d0d0d",
+          transition: "width 0.3s ease, left 0.3s ease",
+          position: "absolute",
+          bottom: "0",
+          left: "50%",
+          width: "0",
+        },
+        ".dark .underline-animation::after": {
+          background: "#f2f2f2",
+        },
+        ".underline-animation:hover::after": {
+          width: "100%",
+          left: "0",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

@@ -1,4 +1,4 @@
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="text-xs md:text-base flex flex-col items-center italic">
       <p className="text-darkerBlue dark:text-lighterBlue text-center">
