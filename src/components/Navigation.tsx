@@ -53,6 +53,25 @@ const Navigation: React.FC<NavProps> = ({
     }
   };
 
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    touchEndX = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchEndX - touchStartX > 100) {
+      handleSidebarShow("close");
+    } else if (touchStartX - touchEndX > 100) {
+      handleSidebarShow("open");
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
@@ -98,25 +117,6 @@ const Navigation: React.FC<NavProps> = ({
       }
     };
 
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.changedTouches[0].screenX;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      touchEndX = e.changedTouches[0].screenX;
-    };
-
-    const handleTouchEnd = () => {
-      if (touchStartX - touchEndX > 100) {
-        handleSidebarShow("close");
-      } else if (touchEndX - touchStartX > 100) {
-        handleSidebarShow("open");
-      }
-    };
-
     const handleLinkClick = (e: MouseEvent) => {
       e.preventDefault();
       const target = e.currentTarget as HTMLElement;
@@ -147,6 +147,10 @@ const Navigation: React.FC<NavProps> = ({
     document.addEventListener("touchend", handleTouchEnd, false);
 
     return () => {
+      navLinks.forEach((link: HTMLElement) => {
+        link.removeEventListener("click", handleLinkClick);
+      });
+
       window.removeEventListener("scroll", handleScroll);
 
       document.removeEventListener("click", handleOutsideClick);
@@ -154,10 +158,6 @@ const Navigation: React.FC<NavProps> = ({
       document.removeEventListener("touchstart", handleTouchStart, false);
       document.removeEventListener("touchmove", handleTouchMove, false);
       document.removeEventListener("touchend", handleTouchEnd, false);
-
-      navLinks.forEach((link: HTMLElement) => {
-        link.removeEventListener("click", handleLinkClick);
-      });
     };
   }, [sectionRefs]);
 

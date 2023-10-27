@@ -16,6 +16,7 @@ const Header: React.FC<HeaderProps> = ({ theme }) => {
       window.scrollTo({ top: y });
     }
   };
+
   return (
     <header
       id="header"
