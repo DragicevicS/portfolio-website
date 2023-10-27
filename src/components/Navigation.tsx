@@ -23,6 +23,69 @@ const Navigation: React.FC<NavProps> = ({
   const [hamburgerTranslateX, setHamburgerTranslateX] = useState("0px");
   const sidebarRef = useRef<HTMLElement | null>(null);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+
+      setShowScrollTop(currentScrollPos > window.innerHeight / 1.3);
+
+      if (window.scrollY < 20) {
+        setCurrentSection(null);
+        return;
+      }
+
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setCurrentSection("contact");
+        return;
+      }
+
+      sectionRefs?.forEach((ref) => {
+        const element = ref.current;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const offset = 150;
+
+          if (rect.top <= offset && rect.top >= 0)
+            setCurrentSection(element.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [sectionRefs]);
+
+  console.log(currentSection);
+
+  useEffect(() => {
+    const handleLinkClick = (e: MouseEvent) => {
+      e.preventDefault();
+      const target = e.currentTarget as HTMLElement;
+      const targetSection = target.getAttribute("data-section");
+
+      if (targetSection) {
+        const element = document.getElementById(targetSection);
+
+        if (element) {
+          const navHeight = window.innerWidth < 768 ? 46 : 58;
+          const offsetPosition = element.offsetTop - navHeight;
+          window.scrollTo({ top: offsetPosition });
+        }
+      }
+    };
+
+    const navLinks = document.querySelectorAll<HTMLElement>("[data-section]");
+    navLinks.forEach((link) => link.addEventListener("click", handleLinkClick));
+
+    return () =>
+      navLinks.forEach((link: HTMLElement) =>
+        link.removeEventListener("click", handleLinkClick)
+      );
+  }, []);
+
   const handleSidebarShow = (
     action: "toggle" | "open" | "close" = "toggle"
   ) => {
@@ -53,54 +116,7 @@ const Navigation: React.FC<NavProps> = ({
     }
   };
 
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  const handleTouchStart = (e: TouchEvent) => {
-    touchStartX = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    touchEndX = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchEndX - touchStartX > 100) {
-      handleSidebarShow("close");
-    } else if (touchStartX - touchEndX > 100) {
-      handleSidebarShow("open");
-    }
-  };
-
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-
-      setShowScrollTop(currentScrollPos > window.innerHeight / 1.3);
-
-      if (window.scrollY < 20) {
-        setCurrentSection(null);
-        return;
-      }
-
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        setCurrentSection("contact");
-        return;
-      }
-
-      sectionRefs?.forEach((ref) => {
-        const element = ref.current;
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const offset = 150;
-
-          if (rect.top <= offset && rect.top >= 0) {
-            setCurrentSection(element.id);
-          }
-        }
-      });
-    };
-
     const handleOutsideClick = (e: MouseEvent) => {
       if (window.innerWidth > 1024) return;
 
@@ -117,49 +133,43 @@ const Navigation: React.FC<NavProps> = ({
       }
     };
 
-    const handleLinkClick = (e: MouseEvent) => {
-      e.preventDefault();
-      const target = e.currentTarget as HTMLElement;
-      const targetSection = target.getAttribute("data-section");
-
-      if (targetSection) {
-        const element = document.getElementById(targetSection);
-
-        if (element) {
-          const navHeight = window.innerWidth < 768 ? 46 : 58;
-          const offsetPosition = element.offsetTop - navHeight;
-          window.scrollTo({ top: offsetPosition });
-        }
-      }
-    };
-
-    const navLinks = document.querySelectorAll<HTMLElement>("[data-section]");
-    navLinks.forEach((link) => {
-      link.addEventListener("click", handleLinkClick);
-    });
-
-    window.addEventListener("scroll", handleScroll);
-
     document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    let touchStartX: number | null = null;
+    let touchEndX: number | null = null;
+
+    const handleTouchStart = (e: TouchEvent) =>
+      (touchStartX = e.changedTouches[0].screenX);
+
+    const handleTouchMove = (e: TouchEvent) =>
+      (touchEndX = e.changedTouches[0].screenX);
+
+    const handleTouchEnd = () => {
+      if (touchStartX === null || touchEndX === null) return;
+
+      if (touchEndX - touchStartX > 100) handleSidebarShow("close");
+      else if (touchStartX - touchEndX > 100) handleSidebarShow("open");
+
+      touchStartX = null;
+      touchEndX = null;
+    };
 
     document.addEventListener("touchstart", handleTouchStart, false);
     document.addEventListener("touchmove", handleTouchMove, false);
     document.addEventListener("touchend", handleTouchEnd, false);
 
     return () => {
-      navLinks.forEach((link: HTMLElement) => {
-        link.removeEventListener("click", handleLinkClick);
-      });
-
-      window.removeEventListener("scroll", handleScroll);
-
-      document.removeEventListener("click", handleOutsideClick);
-
       document.removeEventListener("touchstart", handleTouchStart, false);
       document.removeEventListener("touchmove", handleTouchMove, false);
       document.removeEventListener("touchend", handleTouchEnd, false);
     };
-  }, [sectionRefs]);
+  }, []);
 
   return (
     <nav
@@ -209,13 +219,13 @@ const Navigation: React.FC<NavProps> = ({
             <li
               key={section}
               data-section={section}
-              className={`p-1 max-lg:mt-2 cursor-pointer underline-offset-[3px] ${
-                currentSection === section && window.screenY > 0
-                  ? "text-darkerRed dark:text-lighterRed underline"
-                  : ""
+              className={`p-1 max-lg:mt-2 cursor-pointer underline-offset-[3px] max-lg:active:text-lighterRed ${
+                currentSection === section &&
+                window.screenY > 0 &&
+                "text-darkerRed dark:text-lighterRed underline"
               }`}
             >
-              <span className="relative underline-animation">
+              <span className="relative lg:underline-animation">
                 &#9674; {section.toUpperCase()}
               </span>
             </li>
@@ -227,7 +237,7 @@ const Navigation: React.FC<NavProps> = ({
           src={theme === "dark" ? darkChevronUpIcon : lightChevronUpIcon}
           alt="Scroll up"
           title="Scroll to the top"
-          className="fixed bottom-2 right-2 md:bottom-4 w-7 md:w-10 h-7 md:h-10 ease duration-200 hover:scale-110 cursor-pointer"
+          className="fixed bottom-2 right-2 md:bottom-4 w-7 md:w-10 h-7 md:h-10 ease duration-200 hover:scale-110 cursor-pointer z-50"
           onClick={() => {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
