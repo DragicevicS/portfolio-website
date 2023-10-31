@@ -58,8 +58,6 @@ const Navigation: React.FC<NavProps> = ({
     };
   }, [sectionRefs]);
 
-  console.log(currentSection);
-
   useEffect(() => {
     const handleLinkClick = (e: MouseEvent) => {
       e.preventDefault();

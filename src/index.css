@@ -4,16 +4,66 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply m-0 p-0 box-border scroll-smooth;
+@layer base {
+  * {
+    @apply m-0 p-0 box-border scroll-smooth;
+  }
+
+  /* Scrollbar */
+
+  ::-webkit-scrollbar {
+    @apply w-[9px] bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-darkerBlue hover:bg-lighterBlue;
+  }
 }
 
-/* Scrollbar */
+@layer utilities {
+  /* Navigation hover */
 
-::-webkit-scrollbar {
-  @apply w-3 bg-black;
-}
+  .underline-animation::after {
+    @apply content-[""] absolute bottom-0 left-1/2 block h-[1px] w-0 bg-black dark:bg-white ease-out duration-300;
+  }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-[#555] hover:bg-[#888];
+  .underline-animation:hover::after {
+    @apply w-full left-0;
+  }
+
+  /* Cut borders */
+
+  .cut-border {
+    @apply relative;
+  }
+
+  .cut-border::before,
+  .cut-border::after {
+    @apply content-[""] absolute w-0;
+  }
+
+  .cut-border::before {
+    @apply top-0 left-0 border-t-white dark:border-t-lighterGray border-t-[28px] border-r-[#ffffff] dark:border-r-darkGray border-r-[28px] transition-all;
+  }
+
+  .cut-border::after {
+    @apply bottom-0 right-0 border-b-white dark:border-b-lighterGray border-b-[28px] border-l-[#ffffff] dark:border-l-darkGray border-l-[28px] transition-all;
+  }
+
+  /* Input autocomplete */
+
+  :-webkit-autofill,
+  :-webkit-autofill:hover,
+  :-webkit-autofill:focus {
+    -webkit-background-clip: text;
+    -webkit-box-shadow: none;
+    -webkit-text-fill-color: #0d0d0d;
+  }
+
+  .dark :-webkit-autofill,
+  .dark :-webkit-autofill:hover,
+  .dark :-webkit-autofill:focus {
+    -webkit-text-fill-color: #e6e6e6;
+    @apply border-white;
+  }
 }
