@@ -172,7 +172,8 @@ const Navigation: React.FC<NavProps> = ({
   return (
     <nav
       className={`fixed top-0 flex gap-4 w-full lg:w-max lg:h-screen p-3 md:p-4 animate-fadeIn duration-300 ease ${
-        window.scrollY > 25 && "max-lg:bg-[#ffffff] dark:max-lg:bg-darkGray"
+        window.scrollY > 25 &&
+        "max-lg:bg-[#ffffff] dark:max-lg:bg-darkGray z-50"
       }
       `}
     >
@@ -182,7 +183,7 @@ const Navigation: React.FC<NavProps> = ({
         title={
           theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
         }
-        className="w-5 md:w-6 h-5 md:h-6 duration-500 ease-out hover:scale-110 cursor-pointer"
+        className="w-5 md:w-6 h-5 md:h-6 duration-500 ease-out hover:scale-110 hover:-translate-y-[5%] cursor-pointer"
         ref={imgRef}
         onClick={toggleTheme}
       />

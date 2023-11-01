@@ -34,7 +34,7 @@ const App: React.FC = () => {
             sectionRefs={sectionRefs.current}
           />
           <Header theme={theme} />
-          <Main sectionRefs={sectionRefs.current} />
+          <Main theme={theme} sectionRefs={sectionRefs.current} />
           <Footer />
         </>
       )}

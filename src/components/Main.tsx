@@ -5,14 +5,15 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 
 type MainProps = {
+  theme: string;
   sectionRefs: RefObject<HTMLElement>[];
 };
 
-const Main: React.FC<MainProps> = ({ sectionRefs }) => {
+const Main: React.FC<MainProps> = ({ theme, sectionRefs }) => {
   const sections = ["about", "skills", "projects", "contact"];
 
   return (
-    <main className="flex flex-col items-center w-full">
+    <main className="flex flex-col items-center w-full mb-[5%]">
       {sections.map((section, i) => (
         <section
           key={section}
@@ -30,7 +31,7 @@ const Main: React.FC<MainProps> = ({ sectionRefs }) => {
           ) : section === "projects" ? (
             <Projects />
           ) : (
-            section === "contact" && <Contact />
+            section === "contact" && <Contact theme={theme} />
           )}
         </section>
       ))}
