@@ -19,7 +19,7 @@ const Main: React.FC<MainProps> = ({ theme, sectionRefs }) => {
           key={section}
           id={section}
           ref={sectionRefs[i]}
-          className="flex flex-col items-center gap-3 h-full w-full lg:w-3/5 font-extrabold tracking-widest"
+          className="flex flex-col items-center gap-3 min-h-screen w-full lg:w-3/5 font-extrabold tracking-widest"
         >
           <h2 className="text-center font-serif italic">
             {section.toUpperCase()}

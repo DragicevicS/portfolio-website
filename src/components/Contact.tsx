@@ -78,7 +78,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
       <div className="flex flex-col items-center gap-3 px-4 pt-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-t-2 xl:border-l-2 border-darkerRed dark:border-lighterRed">
         <h3 className="text-darkerRed dark:text-lighterRed">Contact info</h3>
         <p className="text-sm">
-          Feel free to contact me or check me out on other platforms:
+          Feel free to contact or check me out on other platforms:
         </p>
         <hr className="w-full" />
         <ul className="flex flex-col xl:justify-evenly gap-5 h-3/5 w-full text-sm font-normal">
