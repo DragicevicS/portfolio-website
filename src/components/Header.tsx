@@ -36,6 +36,7 @@ const Header: React.FC<HeaderProps> = ({ theme }) => {
         }
         alt="Scroll down"
         className="w-7 md:w-10 h-7 md:h-10 cursor-pointer animate-fadeDown"
+        draggable="false"
         onClick={scrollToFirstSection}
       />
     </header>

@@ -71,6 +71,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               src={theme === "dark" ? darkSendImg : lightSendImg}
               alt="Send arrow"
               className="w-[18px] h-[18px] group-hover:scale-110"
+              draggable="false"
             />
           </button>
         </div>
@@ -87,6 +88,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               src={theme === "dark" ? darkEmailImg : lightEmailImg}
               alt="Email"
               className="w-10 h-10 p-1 rounded-full bg-white dark:bg-lighterGray group-hover:bg-darkerBlue dark:group-hover:bg-lighterBlue group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+              draggable="false"
             />
             <p>dragicevic.a.stefan@gmail.com</p>
           </li>
@@ -95,6 +97,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               src={theme === "dark" ? darkPhoneImg : lightPhoneImg}
               alt="Phone"
               className="w-10 h-10 p-1 rounded-full bg-white dark:bg-lighterGray group-hover:bg-darkerBlue dark:group-hover:bg-lighterBlue group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+              draggable="false"
             />
             <p>+381 63 765 01 01</p>
           </li>
@@ -108,12 +111,14 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
                 src={theme === "dark" ? darkGitHubImg : lightGitHubImg}
                 alt="GitHub"
                 className="w-10 h-10 p-1 rounded-full bg-white dark:bg-lighterGray group-hover:bg-darkerBlue dark:group-hover:bg-lighterBlue group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+                draggable="false"
               />
               <p>GitHub</p>
               <img
                 src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
                 alt="Link in new tab"
                 className="w-3 h-3"
+                draggable="false"
               />
             </a>
           </li>
@@ -127,12 +132,14 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
                 src={theme === "dark" ? darkInstagramImg : lightInstagramImg}
                 alt="Instagram"
                 className="w-10 h-10 p-1 rounded-full bg-white dark:bg-lighterGray group-hover:bg-darkerBlue dark:group-hover:bg-lighterBlue group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+                draggable="false"
               />
               <p>Instagram</p>
               <img
                 src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
                 alt="Link in new tab"
                 className="w-3 h-3"
+                draggable="false"
               />
             </a>
           </li>

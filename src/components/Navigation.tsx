@@ -184,6 +184,7 @@ const Navigation: React.FC<NavProps> = ({
           theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
         }
         className="w-5 md:w-6 h-5 md:h-6 duration-500 ease-out hover:scale-110 hover:-translate-y-[5%] cursor-pointer"
+        draggable="false"
         ref={imgRef}
         onClick={toggleTheme}
       />
@@ -237,6 +238,7 @@ const Navigation: React.FC<NavProps> = ({
           alt="Scroll up"
           title="Scroll to the top"
           className="fixed bottom-2 right-2 md:bottom-4 w-7 md:w-10 h-7 md:h-10 ease duration-200 hover:scale-110 cursor-pointer z-50"
+          draggable="false"
           onClick={() => {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;

@@ -1,9 +1,23 @@
-const About: React.FC = () => {
+import lightHomeImg from "../assets/light/light-home.svg";
+import darkHomeImg from "../assets/dark/dark-home.svg";
+import lightLocationImg from "../assets/light/light-location.svg";
+import darkLocationImg from "../assets/dark/dark-location.svg";
+import lightResumeImg from "../assets/light/light-resume.svg";
+import darkResumeImg from "../assets/dark/dark-resume.svg";
+import lightLinkInNewImg from "../assets/light/light-link-in-new.svg";
+import darkLinkInNewImg from "../assets/dark/dark-link-in-new.svg";
+import resumePDF from "../pdf/Resume.pdf";
+
+type AboutProps = {
+  theme: string;
+};
+
+const About: React.FC<AboutProps> = ({ theme }) => {
   return (
-    <div className="flex flex-col gap-2 px-8 py-7 bg-[#ffffff] dark:bg-darkGray text-justify cut-border">
+    <div className="flex flex-col gap-4 px-8 py-7 bg-[#ffffff] dark:bg-darkGray text-justify cut-border">
       <p className="font-serif font-normal">
-        Greetings! I'm an aspiring frontend web developer based in Sombor,
-        Serbia. My coding journey began in 2015 when I discovered{" "}
+        Greetings! I'm an aspiring frontend web developer. My coding journey
+        began in 2015 when I discovered{" "}
         <a
           href="https://www.codecademy.com/"
           target="_blank"
@@ -33,6 +47,51 @@ const About: React.FC = () => {
         sports keep me energized and ready for both physical and mental
         challenges.
       </p>
+      <div className="flex flex-col gap-2 text-darkerRed dark:text-lighterRed">
+        <div className="group flex gap-2 items-center">
+          <img
+            src={theme === "dark" ? darkHomeImg : lightHomeImg}
+            alt="Home"
+            title="From"
+            className="w-6 h-6 group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+            draggable="false"
+          />
+          <p>Sombor, Serbia</p>
+        </div>
+        <div className="group flex gap-2 items-center">
+          <img
+            src={theme === "dark" ? darkLocationImg : lightLocationImg}
+            alt="Location"
+            title="Current location"
+            className="w-6 h-6 group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+            draggable="false"
+          />
+          <p>Sombor, Serbia</p>
+        </div>
+        <a
+          href={resumePDF}
+          target="_blank"
+          className="group flex gap-2 items-center cursor-pointer"
+          title="View/download resume"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={theme === "dark" ? darkResumeImg : lightResumeImg}
+            alt="Resume"
+            className="w-6 h-6 group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+            draggable="false"
+          />
+          <div className="flex gap-1 items-center">
+            <p className="group-hover:underline">Resume</p>
+            <img
+              src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
+              alt="Link in new tab"
+              className="w-3 h-3"
+              draggable="false"
+            />
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
