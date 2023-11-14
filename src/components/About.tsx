@@ -37,7 +37,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         for a solid web development foundation. Later, in 2017, I completed a
         year-long PHP programming course. While initially viewing programming as
         a hobby, my ambitions evolved, leading me to realize that this could be
-        my career path. Today, my focus revolves around React.js, TypeScript,
+        my career path. Today, my focus revolves around React, TypeScript,
         Tailwind, and Vite. I embrace programming as a perpetual pursuit and
         always welcome a challenge.
       </p>
