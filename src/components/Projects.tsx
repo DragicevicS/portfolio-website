@@ -84,7 +84,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         })}
       </Swiper>
       <div className="flex flex-col gap-2 w-full animate-fadeIn">
-        <p className="h-20">{projects[sliderNumber].description}</p>
+        <p className="h-full lg:h-20">{projects[sliderNumber].description}</p>
         <div className="flex justify-center">HTML CSS REACT TAILWIND VITE</div>
         <div className="flex gap-2">
           <a
