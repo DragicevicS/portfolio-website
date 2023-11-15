@@ -13,7 +13,7 @@ const Main: React.FC<MainProps> = ({ theme, sectionRefs }) => {
   const sections = ["about", "skills", "projects", "contact"];
 
   return (
-    <main className="flex flex-col items-center w-full mb-[5%]">
+    <main className="flex flex-col items-center lg:gap-16 w-full">
       {sections.map((section, i) => (
         <section
           key={section}
@@ -27,9 +27,9 @@ const Main: React.FC<MainProps> = ({ theme, sectionRefs }) => {
           {section === "about" ? (
             <About theme={theme} />
           ) : section === "skills" ? (
-            <Skills />
+            <Skills theme={theme} />
           ) : section === "projects" ? (
-            <Projects />
+            <Projects theme={theme} />
           ) : (
             section === "contact" && <Contact theme={theme} />
           )}

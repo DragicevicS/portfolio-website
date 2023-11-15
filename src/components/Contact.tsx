@@ -17,7 +17,7 @@ type ContactProps = {
 
 const Contact: React.FC<ContactProps> = ({ theme }) => {
   return (
-    <div className="flex flex-col xl:flex-row cut-border">
+    <div className="flex flex-col xl:flex-row font-serif cut-border">
       <form className="flex flex-col items-center gap-2 p-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-b-2 xl:border-r-2 border-darkerRed dark:border-lighterRed">
         <h3 className="text-darkerBlue dark:text-lighterBlue">
           Lets get in touch
@@ -29,7 +29,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Name"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-serif font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         />
         <input
           type="email"
@@ -38,7 +38,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Email"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-serif font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         />
         <input
           type="text"
@@ -47,7 +47,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Subject"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-serif font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         />
         <textarea
           name="message"
@@ -58,7 +58,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Message"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] resize-none bg-[#ffffff] dark:bg-darkGray font-serif font-normal hover:w-[81%] focus:w-[81%] outline-none border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[80%] resize-none bg-[#ffffff] dark:bg-darkGray font-normal hover:w-[81%] focus:w-[81%] outline-none border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         ></textarea>
         <div className="w-[80%]">
           <button
@@ -66,7 +66,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
             className="group flex gap-3 items-center mt-5 ml-auto px-2 border-l-4 hover:underline hover:border-darkerRed dark:hover:border-lighterRed ease duration-300"
             onClick={(e) => e.preventDefault()}
           >
-            <span className="font-serif font-normal">SEND</span>
+            <span className="font-normal">SEND</span>
             <img
               src={theme === "dark" ? darkSendImg : lightSendImg}
               alt="Send arrow"

@@ -142,11 +142,17 @@ const Navigation: React.FC<NavProps> = ({
     let touchStartX: number | null = null;
     let touchEndX: number | null = null;
 
-    const handleTouchStart = (e: TouchEvent) =>
-      (touchStartX = e.changedTouches[0].screenX);
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.target && (e.target as HTMLElement).closest(".swiper-container"))
+        return;
+      touchStartX = e.changedTouches[0].screenX;
+    };
 
-    const handleTouchMove = (e: TouchEvent) =>
-      (touchEndX = e.changedTouches[0].screenX);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.target && (e.target as HTMLElement).closest(".swiper-container"))
+        return;
+      touchEndX = e.changedTouches[0].screenX;
+    };
 
     const handleTouchEnd = () => {
       if (touchStartX === null || touchEndX === null) return;
