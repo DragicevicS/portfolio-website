@@ -1,3 +1,4 @@
+import { useState } from "react";
 import lightSendImg from "../assets/light/light-send.svg";
 import darkSendImg from "../assets/dark/dark-send.svg";
 import lightEmailImg from "../assets/light/light-email.svg";
@@ -16,6 +17,26 @@ type ContactProps = {
 };
 
 const Contact: React.FC<ContactProps> = ({ theme }) => {
+  const [notificationStates, setNotificationStates] = useState({
+    email: false,
+    phone: false,
+  });
+
+  const handleCopy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setNotificationStates((prev) => ({
+        ...prev,
+        [key]: true,
+      }));
+      setTimeout(() => {
+        setNotificationStates((prev) => ({
+          ...prev,
+          [key]: false,
+        }));
+      }, 800);
+    });
+  };
+
   return (
     <div className="flex flex-col xl:flex-row font-serif cut-border">
       <form className="flex flex-col items-center gap-2 p-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-b-2 xl:border-r-2 border-darkerRed dark:border-lighterRed">
@@ -83,7 +104,11 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
         </p>
         <hr className="w-full" />
         <ul className="flex flex-col xl:justify-evenly gap-5 h-3/5 w-full text-sm font-normal">
-          <li className="group flex items-center gap-2" title="Email">
+          <li
+            className="group relative flex items-center gap-2 cursor-pointer"
+            title="Click to copy!"
+            onClick={() => handleCopy("dragicevic.a.stefan@gmail.com", "email")}
+          >
             <img
               src={theme === "dark" ? darkEmailImg : lightEmailImg}
               alt="Email"
@@ -91,8 +116,19 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               draggable="false"
             />
             <p>dragicevic.a.stefan@gmail.com</p>
+            <span
+              className={`absolute -bottom-5 left-1/2 -translate-x-1/2 px-1 text-sm text-darkerBlue dark:text-lighterBlue bg-white dark:bg-lighterGray rounded-sm ${
+                notificationStates.email ? "block" : "hidden"
+              }`}
+            >
+              Copied!
+            </span>
           </li>
-          <li className="group flex items-center gap-2" title="Phone">
+          <li
+            className="group relative flex items-center gap-2 cursor-pointer"
+            title="Click to copy!"
+            onClick={() => handleCopy("+381 63 765 01 01", "phone")}
+          >
             <img
               src={theme === "dark" ? darkPhoneImg : lightPhoneImg}
               alt="Phone"
@@ -100,6 +136,13 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               draggable="false"
             />
             <p>+381 63 765 01 01</p>
+            <span
+              className={`absolute -bottom-5 left-1/2 -translate-x-1/2 px-1 text-sm text-darkerBlue dark:text-lighterBlue bg-white dark:bg-lighterGray rounded-sm ${
+                notificationStates.phone ? "block" : "hidden"
+              }`}
+            >
+              Copied!
+            </span>
           </li>
           <li title="GitHub">
             <a
