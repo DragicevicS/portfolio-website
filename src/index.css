@@ -63,7 +63,7 @@
   .dark :-webkit-autofill,
   .dark :-webkit-autofill:hover,
   .dark :-webkit-autofill:focus {
-    -webkit-text-fill-color: #e6e6e6;
+    -webkit-text-fill-color: #d9d9d9;
     @apply border-white;
   }
 }

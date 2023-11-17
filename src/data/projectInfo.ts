@@ -24,7 +24,7 @@ export const projectInfo = [
     img: imgLoad.projects[1],
     description:
       "CV App is a web app for... making CVs. It will contains a few templates for editing and also a printing option.",
-    tools: ["html", "css", "javascript", "react"],
+    tools: ["html", "css", "javascript", "react", "seo"],
     url: "",
     github: "https://github.com/DragicevicS/cv-application",
   },
