@@ -3,7 +3,6 @@ import { Swiper as SwiperCore } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   EffectCreative,
-  EffectFade,
   Autoplay,
   Pagination,
   Navigation,
@@ -32,11 +31,21 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
     setSliderNumber(swiper.activeIndex);
   };
 
+  const [lightbox, setLightbox] = useState({ open: false, imgSrc: "" });
+
+  const openLightbox = (imgSrc: string) => {
+    setLightbox({ open: true, imgSrc });
+  };
+
+  const closeLightbox = () => {
+    setLightbox({ open: false, imgSrc: "" });
+  };
+
   return (
     <div className="flex flex-col items-center gap-3 px-8 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm font-serif cut-border">
       <Swiper
         navigation={true}
-        modules={[EffectFade, Navigation]}
+        modules={[Navigation]}
         className="max-w-full md:max-w-[50%] py-1 border-b-2 border-t-2 swiper-container"
         onSlideChange={handleSlideChange}
       >
@@ -76,7 +85,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       >
         {projectInfo[sliderNumber].images.map((img, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} onClick={() => openLightbox(img)}>
               <img
                 src={img}
                 alt={projectInfo[sliderNumber].title}
@@ -87,6 +96,18 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           );
         })}
       </Swiper>
+      {lightbox.open && (
+        <div
+          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50"
+          onClick={closeLightbox}
+        >
+          <img
+            src={lightbox.imgSrc}
+            alt="Selected"
+            className="max-w-full max-h-full p-4"
+          />
+        </div>
+      )}
       <div className="flex flex-col gap-4 w-full">
         <div className="flex flex-wrap justify-center items-center gap-3 w-full py-3 bg-white dark:bg-lighterGray rounded-sm">
           {projectInfo[sliderNumber].tools.map((tool, index) => (
@@ -105,6 +126,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           <a
             href={projectInfo[sliderNumber].url}
             target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerBlue dark:hover:text-lighterBlue ease duration-300"
           >
             <img
@@ -124,6 +146,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           <a
             href={projectInfo[sliderNumber].github}
             target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerRed dark:hover:text-lighterRed ease duration-300"
           >
             <img
