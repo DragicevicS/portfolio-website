@@ -67,3 +67,28 @@
     @apply border-white;
   }
 }
+
+/* Swiper */
+
+.swiper-pagination-bullet-active {
+  @apply bg-darkerRed w-[9px] h-[9px];
+}
+
+.dark .swiper-pagination-bullet-active {
+  @apply bg-lighterRed w-[9px] h-[9px];
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply text-darkerRed;
+}
+
+.dark .swiper-button-prev,
+.dark .swiper-button-next {
+  @apply text-lighterRed;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-2xl;
+}

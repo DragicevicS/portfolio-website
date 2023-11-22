@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Swiper as SwiperCore } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCreative, Pagination } from "swiper/modules";
+import {
+  EffectCreative,
+  EffectFade,
+  Autoplay,
+  Pagination,
+  Navigation,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-creative";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { projectInfo } from "../data/projectInfo.ts";
 import { imgLoad } from "../data/imgLoad.ts";
 import lightViewImg from "../assets/light/light-view.svg";
@@ -26,10 +33,26 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 px-8 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm font-serif cut-border">
-      <h3 className="px-5 py-1 bg-white dark:bg-black text-lg rounded-sm">
-        {projectInfo[sliderNumber].title}
-      </h3>
+    <div className="flex flex-col items-center gap-3 px-8 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm font-serif cut-border">
+      <Swiper
+        navigation={true}
+        modules={[EffectFade, Navigation]}
+        className="max-w-full md:max-w-[50%] py-1 border-b-2 border-t-2 swiper-container"
+        onSlideChange={handleSlideChange}
+      >
+        {projectInfo.map((project, index) => {
+          return (
+            <SwiperSlide key={index} className="flex justify-center">
+              <h3 className="w-max text-xl font-bold text-darkerBlue dark:text-lighterBlue">
+                {project.title}
+              </h3>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+      <p className="flex items-center h-full lg:h-20">
+        {projectInfo[sliderNumber].description}
+      </p>
       <Swiper
         grabCursor={true}
         effect={"creative"}
@@ -45,16 +68,18 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         pagination={{
           clickable: true,
         }}
-        modules={[EffectCreative, Pagination]}
-        className="max-w-full bg-[#ffffff] dark:bg-darkGray swiper-container"
-        onSlideChange={handleSlideChange}
+        autoplay={{
+          delay: 3500,
+        }}
+        modules={[EffectCreative, Autoplay, Pagination]}
+        className="max-w-[90%] pb-8 bg-[#ffffff] dark:bg-darkGray swiper-container"
       >
-        {projectInfo.map((project, index) => {
+        {projectInfo[sliderNumber].images.map((img, index) => {
           return (
             <SwiperSlide key={index}>
               <img
-                src={project.img}
-                alt={project.title}
+                src={img}
+                alt={projectInfo[sliderNumber].title}
                 loading="lazy"
                 className="max-w-full h-auto bg-[#ffffff] dark:bg-darkGray"
               />
@@ -63,9 +88,6 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         })}
       </Swiper>
       <div className="flex flex-col gap-4 w-full">
-        <p className="h-full lg:h-20">
-          {projectInfo[sliderNumber].description}
-        </p>
         <div className="flex flex-wrap justify-center items-center gap-3 w-full py-3 bg-white dark:bg-lighterGray rounded-sm">
           {projectInfo[sliderNumber].tools.map((tool, index) => (
             <img
@@ -83,7 +105,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           <a
             href={projectInfo[sliderNumber].url}
             target="_blank"
-            className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerRed dark:hover:text-lighterRed ease duration-300"
+            className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerBlue dark:hover:text-lighterBlue ease duration-300"
           >
             <img
               src={theme === "dark" ? darkViewImg : lightViewImg}

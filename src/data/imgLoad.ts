@@ -1,4 +1,7 @@
-import typerHubImg from "../assets/projects/typerhub.png";
+import typerhub1Img from "../assets/projects/typerhub/typerhub-1.png";
+import typerhub2Img from "../assets/projects/typerhub/typerhub-2.png";
+import typerhub3Img from "../assets/projects/typerhub/typerhub-3.png";
+import typerhub4Img from "../assets/projects/typerhub/typerhub-4.png";
 import cvAppImg from "../assets/projects/cv-app.png";
 import htmlLogo from "../assets/logos/html-logo.svg";
 import cssLogo from "../assets/logos/css-logo.svg";
@@ -20,7 +23,10 @@ type LogoType = {
 };
 
 export const imgLoad = {
-  projects: [typerHubImg, cvAppImg],
+  projects: {
+    typerhub: [typerhub1Img, typerhub2Img, typerhub3Img, typerhub4Img],
+    CVapp: [cvAppImg, cvAppImg, cvAppImg],
+  },
   logos: {
     html: { title: "HTML5", url: htmlLogo },
     css: { title: "CSS3", url: cssLogo },
