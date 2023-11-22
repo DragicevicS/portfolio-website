@@ -70,6 +70,7 @@ const Navigation: React.FC<NavProps> = ({
         if (element) {
           const navHeight = window.innerWidth < 768 ? 46 : 58;
           const offsetPosition = element.offsetTop - navHeight;
+          handleSidebarShow("close");
           window.scrollTo({ top: offsetPosition });
         }
       }
@@ -143,13 +144,21 @@ const Navigation: React.FC<NavProps> = ({
     let touchEndX: number | null = null;
 
     const handleTouchStart = (e: TouchEvent) => {
-      if (e.target && (e.target as HTMLElement).closest(".swiper-container"))
+      if (
+        e.target &&
+        ((e.target as HTMLElement).closest(".swiper-container") ||
+          (e.target as HTMLElement).closest(".lightbox-container"))
+      )
         return;
       touchStartX = e.changedTouches[0].screenX;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (e.target && (e.target as HTMLElement).closest(".swiper-container"))
+      if (
+        e.target &&
+        ((e.target as HTMLElement).closest(".swiper-container") ||
+          (e.target as HTMLElement).closest(".lightbox-container"))
+      )
         return;
       touchEndX = e.changedTouches[0].screenX;
     };
@@ -195,24 +204,26 @@ const Navigation: React.FC<NavProps> = ({
         onClick={toggleTheme}
       />
       <div
-        className="group flex flex-col gap-[3px] w-5 md:w-6 h-5 md:h-6 ml-auto lg:hidden duration-500 ease-in-out cursor-pointer"
+        className="group relative flex flex-col gap-[3px] w-5 md:w-6 h-5 md:h-6 ml-auto lg:hidden duration-500 ease-in-out cursor-pointer"
         style={{ transform: `translateX(-${hamburgerTranslateX})` }}
         ref={hamburgerRef}
         onClick={() => handleSidebarShow("toggle")}
       >
         <div
-          className={`w-full h-1 bg-black dark:bg-white rounded-md group-hover:w-1/2 group-hover:translate-y-1 ease duration-300 ${
-            hamburgerTranslateX === "0px"
-              ? "group-hover:-rotate-[30deg] delay-100"
-              : "ml-auto group-hover:rotate-[30deg] delay-100"
+          className={`w-full h-1 bg-black dark:bg-white rounded-md ease duration-300 ${
+            hamburgerTranslateX !== "0px" &&
+            "absolute ml-auto top-1/2 rotate-45 w-[105%]"
           }`}
         ></div>
-        <div className="w-5/6 h-1 ml-auto bg-black dark:bg-white rounded-md group-hover:w-full ease duration-300"></div>
         <div
-          className={` w-full h-1 bg-black dark:bg-white rounded-md group-hover:w-1/2 group-hover:-translate-y-1 ease duration-300 ${
-            hamburgerTranslateX === "0px"
-              ? "group-hover:rotate-[30deg] delay-100"
-              : "ml-auto group-hover:-rotate-[30deg] delay-100"
+          className={`w-5/6 h-1 ml-auto bg-black dark:bg-white rounded-md group-hover:w-full ease duration-200 ${
+            hamburgerTranslateX !== "0px" && "invisible duration-0"
+          }`}
+        ></div>
+        <div
+          className={` w-full h-1 bg-black dark:bg-white rounded-md ease duration-300 ${
+            hamburgerTranslateX !== "0px" &&
+            "absolute ml-auto top-1/2 -rotate-45 w-[105%]"
           }`}
         ></div>
       </div>

@@ -98,7 +98,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       </Swiper>
       {lightbox.open && (
         <div
-          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50"
+          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50 lightbox-container"
           onClick={closeLightbox}
         >
           <img
