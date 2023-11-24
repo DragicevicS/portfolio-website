@@ -13,11 +13,20 @@ type AboutProps = {
 };
 
 const About: React.FC<AboutProps> = ({ theme }) => {
+  const handleScrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      const navHeight = window.innerWidth < 768 ? 46 : 58;
+      const offsetPosition = element.offsetTop - navHeight;
+      window.scrollTo({ top: offsetPosition });
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 px-8 py-7 bg-[#ffffff] dark:bg-darkGray text-justify cut-border">
       <p className="font-serif font-normal">
-        Greetings! I'm an aspiring frontend web developer. My coding journey
-        began in 2015 when I discovered{" "}
+        Welcome! I'm an aspiring frontend web developer. My coding journey began
+        in 2015 when I discovered{" "}
         <a
           href="https://www.codecademy.com/"
           target="_blank"
@@ -37,18 +46,36 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         for a solid web development foundation. Later, in 2017, I completed a
         year-long PHP programming course. While initially viewing programming as
         a hobby, my ambitions evolved, leading me to realize that this could be
-        my career path. Today, my focus revolves around React, TypeScript,
-        Tailwind, and Vite. I embrace programming as a perpetual pursuit and
-        always welcome a challenge.
+        my career path. Today, my focus revolves around crafting apps with
+        React, which I learned from{" "}
+        <a
+          href="https://www.theodinproject.com/"
+          target="_blank"
+          className="text-darkerBlue dark:text-lighterBlue"
+        >
+          The Odin Project
+        </a>{" "}
+        in 2023, finessing my skills in TypeScript, and designing with Tailwind.
       </p>
       <p className="font-serif font-normal">
-        Beyond coding, I'm a firm believer in the "Strong body, strong mind"
+        Beyond the screen, I'm a firm believer in the "Strong body, strong mind"
         lifestyle. Regularly hitting the gym and actively participating in
-        sports keep me energized and ready for both physical and mental
-        challenges.
+        sports keep me energized, sharp and resilient.
+      </p>
+      <p className="font-serif font-normal">
+        I embrace programming as a perpetual pursuit and always welcome a
+        challenge. If you believe we can create something impactful together,
+        please don't hesitate to{" "}
+        <span
+          className="text-darkerBlue dark:text-lighterBlue cursor-pointer"
+          onClick={handleScrollToContact}
+        >
+          contact
+        </span>{" "}
+        me. Let's make it happen!
       </p>
       <div className="flex flex-col gap-2 text-darkerRed dark:text-lighterRed">
-        <div className="group flex gap-2 items-center">
+        <div className="group flex gap-2 w-max items-center">
           <img
             src={theme === "dark" ? darkHomeImg : lightHomeImg}
             alt="Home"
@@ -58,7 +85,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
           />
           <p>Sombor, Serbia</p>
         </div>
-        <div className="group flex gap-2 items-center">
+        <div className="group flex gap-2 w-max items-center">
           <img
             src={theme === "dark" ? darkLocationImg : lightLocationImg}
             alt="Location"
@@ -71,7 +98,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         <a
           href={resumePDF}
           target="_blank"
-          className="group flex gap-2 items-center cursor-pointer"
+          className="group flex gap-2 items-center w-max cursor-pointer"
           title="View/download resume"
           rel="noopener noreferrer"
         >

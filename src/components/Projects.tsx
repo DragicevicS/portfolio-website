@@ -44,6 +44,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
   return (
     <div className="flex flex-col items-center gap-3 px-8 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm font-serif cut-border">
       <Swiper
+        grabCursor={true}
         navigation={true}
         modules={[Navigation]}
         className="max-w-full md:max-w-[50%] py-1 border-b-2 border-t-2 swiper-container"
