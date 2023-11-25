@@ -80,6 +80,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         }}
         autoplay={{
           delay: 3500,
+          pauseOnMouseEnter: true,
         }}
         modules={[EffectCreative, Autoplay, Pagination]}
         className="max-w-[90%] pb-8 bg-[#ffffff] dark:bg-darkGray swiper-container"
@@ -114,7 +115,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           {projectInfo[sliderNumber].tools.map((tool, index) => (
             <img
               src={imgLoad.logos[tool].url}
-              alt={imgLoad.logos[tool].title}
+              alt={`${imgLoad.logos[tool].title} logo`}
               title={imgLoad.logos[tool].title}
               key={index}
               loading="lazy"

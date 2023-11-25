@@ -38,7 +38,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
   };
 
   return (
-    <div className="flex flex-col xl:flex-row font-serif cut-border">
+    <div className="flex flex-col xl:flex-row w-full mb-20 font-serif cut-border">
       <form className="flex flex-col items-center gap-2 p-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-b-2 xl:border-r-2 border-darkerRed dark:border-lighterRed">
         <h3 className="text-darkerBlue dark:text-lighterBlue">
           Lets get in touch

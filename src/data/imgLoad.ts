@@ -17,6 +17,8 @@ import seoLogo from "../assets/logos/seo-logo.svg";
 import responsiveLogo from "../assets/logos/responsive-logo.svg";
 import linuxLogo from "../assets/logos/linux-logo.svg";
 import netlifyLogo from "../assets/logos/netlify-logo.svg";
+import jestLogo from "../assets/logos/jest-logo.svg";
+import vscodeLogo from "../assets/logos/vscode-logo.svg";
 
 type LogoType = {
   [key: string]: { title: string; url: string };
@@ -42,5 +44,7 @@ export const imgLoad = {
     responsive: { title: "Responsive design", url: responsiveLogo },
     linux: { title: "Linux", url: linuxLogo },
     netlify: { title: "Netlify", url: netlifyLogo },
+    jest: { title: "Jest", url: jestLogo },
+    vscode: { title: "VS Code", url: vscodeLogo },
   } as LogoType,
 };
