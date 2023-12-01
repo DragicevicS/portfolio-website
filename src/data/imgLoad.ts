@@ -1,8 +1,10 @@
-import typerhub1Img from "../assets/projects/typerhub/typerhub-1.png";
-import typerhub2Img from "../assets/projects/typerhub/typerhub-2.png";
-import typerhub3Img from "../assets/projects/typerhub/typerhub-3.png";
-import typerhub4Img from "../assets/projects/typerhub/typerhub-4.png";
+import typerhubImg1 from "../assets/projects/typerhub/typerhub-1.png";
+import typerhubImg2 from "../assets/projects/typerhub/typerhub-2.png";
+import typerhubImg3 from "../assets/projects/typerhub/typerhub-3.png";
+import typerhubImg4 from "../assets/projects/typerhub/typerhub-4.png";
 import cvAppImg from "../assets/projects/cv-app.png";
+import weatherAppImg1 from "../assets/projects/weather-app/weather-app-1.png";
+import weatherAppImg2 from "../assets/projects/weather-app/weather-app-2.png";
 import htmlLogo from "../assets/logos/html-logo.svg";
 import cssLogo from "../assets/logos/css-logo.svg";
 import javascriptLogo from "../assets/logos/javascript-logo.svg";
@@ -26,8 +28,9 @@ type LogoType = {
 
 export const imgLoad = {
   projects: {
-    typerhub: [typerhub1Img, typerhub2Img, typerhub3Img, typerhub4Img],
+    typerhub: [typerhubImg1, typerhubImg2, typerhubImg3, typerhubImg4],
     CVapp: [cvAppImg, cvAppImg, cvAppImg],
+    weatherApp: [weatherAppImg1, weatherAppImg2],
   },
   logos: {
     html: { title: "HTML5", url: htmlLogo },
