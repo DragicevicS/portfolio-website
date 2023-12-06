@@ -29,7 +29,7 @@ type LogoType = {
 export const imgLoad = {
   projects: {
     typerhub: [typerhubImg1, typerhubImg2, typerhubImg3, typerhubImg4],
-    CVapp: [cvAppImg, cvAppImg, cvAppImg],
+    CVapp: [cvAppImg],
     weatherApp: [weatherAppImg1, weatherAppImg2],
   },
   logos: {

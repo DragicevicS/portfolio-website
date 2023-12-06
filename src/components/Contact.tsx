@@ -1,4 +1,6 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import emailJSinfo from "../data/emailJSinfo";
 import lightSendImg from "../assets/light/light-send.svg";
 import darkSendImg from "../assets/dark/dark-send.svg";
 import lightEmailImg from "../assets/light/light-email.svg";
@@ -19,6 +21,39 @@ type ContactProps = {
 };
 
 const Contact: React.FC<ContactProps> = ({ theme }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const nameInput = form.elements.namedItem("name") as HTMLInputElement;
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+    const subjectInput = form.elements.namedItem("subject") as HTMLInputElement;
+    const messageInput = form.elements.namedItem("message") as HTMLInputElement;
+    const formData = {
+      name: nameInput.value,
+      email: emailInput.value,
+      subject: subjectInput.value,
+      message: messageInput.value,
+    };
+
+    emailjs
+      .send(
+        emailJSinfo.SERVICE_ID,
+        emailJSinfo.TEMPLATE_ID,
+        formData,
+        emailJSinfo.PUBLIC_KEY
+      )
+      .then(
+        () => {
+          alert("Email sent successfully!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+          alert("Failed to send email.");
+        }
+      );
+  };
+
   const [notificationStates, setNotificationStates] = useState({
     email: false,
     phone: false,
@@ -41,7 +76,10 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
 
   return (
     <div className="flex flex-col xl:flex-row w-full mb-20 font-serif cut-border">
-      <form className="flex flex-col items-center gap-2 p-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-b-2 xl:border-r-2 border-darkerRed dark:border-lighterRed">
+      <form
+        className="flex flex-col items-center gap-2 p-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-b-2 xl:border-r-2 border-darkerRed dark:border-lighterRed"
+        onSubmit={handleSubmit}
+      >
         <h3 className="text-darkerBlue dark:text-lighterBlue">
           Lets get in touch
         </h3>
@@ -87,7 +125,6 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           <button
             type="submit"
             className="group flex gap-3 items-center mt-5 ml-auto px-2 border-l-4 hover:underline hover:border-darkerRed dark:hover:border-lighterRed ease duration-300"
-            onClick={(e) => e.preventDefault()}
           >
             <span className="font-normal">SEND</span>
             <img
