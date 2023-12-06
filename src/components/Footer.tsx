@@ -7,7 +7,11 @@ const Footer: React.FC = () => {
       <p>
         Copyright{" "}
         <span className="text-darkerRed dark:text-lighterRed">&copy;</span> 2023{" "}
-        <a href="https://github.com/DragicevicS" target="_blank">
+        <a
+          href="https://github.com/DragicevicS"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           DragicevicS
         </a>
       </p>

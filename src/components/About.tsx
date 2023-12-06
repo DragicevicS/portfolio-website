@@ -30,6 +30,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         <a
           href="https://www.codecademy.com/"
           target="_blank"
+          rel="noopener noreferrer"
           className="text-darkerBlue dark:text-lighterBlue"
         >
           Codecademy
@@ -39,6 +40,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         <a
           href="https://www.freecodecamp.org/"
           target="_blank"
+          rel="noopener noreferrer"
           className="text-darkerBlue dark:text-lighterBlue"
         >
           freeCodeCamp
@@ -51,6 +53,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         <a
           href="https://www.theodinproject.com/"
           target="_blank"
+          rel="noopener noreferrer"
           className="text-darkerBlue dark:text-lighterBlue"
         >
           The Odin Project

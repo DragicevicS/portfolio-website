@@ -150,6 +150,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
             <a
               href="https://github.com/DragicevicS"
               target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2"
             >
               <img
@@ -171,6 +172,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
             <a
               href="https://www.linkedin.com/in/stefan-dragi%C4%87evi%C4%87-748a002a3/"
               target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2"
             >
               <img
@@ -192,6 +194,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
             <a
               href="https://instagram.com/stefan.dragicevic_?igshid=MmVlMjlkMTBhMg=="
               target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2"
             >
               <img
