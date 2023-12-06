@@ -42,7 +42,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-3 px-8 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm font-serif cut-border">
+    <div className="flex flex-col items-center gap-3 px-8 lg:px-16 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm font-serif cut-border">
       <Swiper
         grabCursor={true}
         navigation={true}
@@ -60,7 +60,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           );
         })}
       </Swiper>
-      <p className="flex items-center h-full lg:h-20">
+      <p className="flex items-center h-full lg:h-24">
         {projectInfo[sliderNumber].description}
       </p>
       <Swiper
@@ -124,26 +124,28 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           ))}
         </div>
         <div className="flex gap-2">
-          <a
-            href={projectInfo[sliderNumber].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerBlue dark:hover:text-lighterBlue ease duration-300"
-          >
-            <img
-              src={theme === "dark" ? darkViewImg : lightViewImg}
-              alt="View"
-              className="w-5 h-5"
-              draggable="false"
-            />
-            Live Demo
-            <img
-              src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
-              alt="Link in new tab"
-              className="w-[10px] h-[10px]"
-              draggable="false"
-            />
-          </a>
+          {projectInfo[sliderNumber].url !== "" && (
+            <a
+              href={projectInfo[sliderNumber].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerBlue dark:hover:text-lighterBlue ease duration-300"
+            >
+              <img
+                src={theme === "dark" ? darkViewImg : lightViewImg}
+                alt="View"
+                className="w-5 h-5"
+                draggable="false"
+              />
+              Live Demo
+              <img
+                src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
+                alt="Link in new tab"
+                className="w-[10px] h-[10px]"
+                draggable="false"
+              />
+            </a>
+          )}
           <a
             href={projectInfo[sliderNumber].github}
             target="_blank"

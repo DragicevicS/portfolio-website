@@ -5,6 +5,12 @@ import typerhubImg4 from "../assets/projects/typerhub/typerhub-4.png";
 import cvAppImg from "../assets/projects/cv-app.png";
 import weatherAppImg1 from "../assets/projects/weather-app/weather-app-1.png";
 import weatherAppImg2 from "../assets/projects/weather-app/weather-app-2.png";
+import ticTacToeImg from "../assets/projects/small/tic-tac-toe.png";
+import battleshipImg from "../assets/projects/small/battleship.png";
+import pongPingImg from "../assets/projects/small/pong-ping.png";
+import rpsImg from "../assets/projects/small/rps.png";
+import todoListImg from "../assets/projects/small/todo-list.png";
+import calculatorImg from "../assets/projects/small/calculator.png";
 import htmlLogo from "../assets/logos/html-logo.svg";
 import cssLogo from "../assets/logos/css-logo.svg";
 import javascriptLogo from "../assets/logos/javascript-logo.svg";
@@ -31,6 +37,14 @@ export const imgLoad = {
     typerhub: [typerhubImg1, typerhubImg2, typerhubImg3, typerhubImg4],
     CVapp: [cvAppImg],
     weatherApp: [weatherAppImg1, weatherAppImg2],
+    smallProjects: [
+      ticTacToeImg,
+      battleshipImg,
+      pongPingImg,
+      rpsImg,
+      todoListImg,
+      calculatorImg,
+    ],
   },
   logos: {
     html: { title: "HTML5", url: htmlLogo },

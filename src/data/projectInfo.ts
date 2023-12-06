@@ -36,4 +36,13 @@ export const projectInfo = [
     url: "https://dragicevics.github.io/weather-app/",
     github: "https://github.com/DragicevicS/weather-app",
   },
+  {
+    title: "Smaller projects",
+    images: imgLoad.projects.smallProjects,
+    description:
+      "In my coding journey, I've created various smaller, beginner-level apps. These little gems are like milestones of my progress. Among these are games such as Tic-Tac-Toe, Battleship, Pong, Rock Paper Scissors, as well as the essential ToDo List and Calculator. Mostly crafted using HTML, CSS, and JavaScript - these projects are humble yet pivotal steps in my journey. While they aren't hosted for live interaction, you're welcome to dive into my repository list to explore these creations. But a fair warning - open these repositories at your own peril!",
+    tools: ["html", "css", "javascript", "webpack", "vite"],
+    url: "",
+    github: "https://github.com/DragicevicS?tab=repositories",
+  },
 ];
