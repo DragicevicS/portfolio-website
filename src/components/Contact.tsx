@@ -7,6 +7,8 @@ import lightPhoneImg from "../assets/light/light-phone.svg";
 import darkPhoneImg from "../assets/dark/dark-phone.svg";
 import lightGitHubImg from "../assets/light/light-github.svg";
 import darkGitHubImg from "../assets/dark/dark-github.svg";
+import lightLinkedInImg from "../assets/light/light-linkedin.svg";
+import darkLinkedInImg from "../assets/dark/dark-linkedin.svg";
 import lightInstagramImg from "../assets/light/light-instagram.svg";
 import darkInstagramImg from "../assets/dark/dark-instagram.svg";
 import lightLinkInNewImg from "../assets/light/light-link-in-new.svg";
@@ -157,6 +159,27 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
                 draggable="false"
               />
               <p>GitHub</p>
+              <img
+                src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
+                alt="Link in new tab"
+                className="w-3 h-3"
+                draggable="false"
+              />
+            </a>
+          </li>
+          <li title="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/stefan-dragi%C4%87evi%C4%87-748a002a3/"
+              target="_blank"
+              className="group flex items-center gap-2"
+            >
+              <img
+                src={theme === "dark" ? darkLinkedInImg : lightLinkedInImg}
+                alt="LinkedIn"
+                className="w-10 h-10 p-1 rounded-full bg-white dark:bg-lighterGray group-hover:bg-darkerBlue dark:group-hover:bg-lighterBlue group-hover:scale-110 group-hover:-translate-y-[5%] ease duration-200"
+                draggable="false"
+              />
+              <p>LinkedIn</p>
               <img
                 src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
                 alt="Link in new tab"

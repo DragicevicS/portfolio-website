@@ -64,7 +64,6 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         {projectInfo[sliderNumber].description}
       </p>
       <Swiper
-        grabCursor={true}
         effect={"creative"}
         creativeEffect={{
           prev: {
@@ -92,7 +91,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                 src={img}
                 alt={projectInfo[sliderNumber].title}
                 loading="lazy"
-                className="max-w-full h-auto bg-[#ffffff] dark:bg-darkGray"
+                className="max-w-full h-auto bg-[#ffffff] dark:bg-darkGray cursor-zoom-in active:cursor-grabbing"
               />
             </SwiperSlide>
           );
@@ -100,7 +99,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       </Swiper>
       {lightbox.open && (
         <div
-          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50 lightbox-container"
+          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50 lightbox-container cursor-zoom-out"
           onClick={closeLightbox}
         >
           <img

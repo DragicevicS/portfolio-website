@@ -60,7 +60,9 @@ const About: React.FC<AboutProps> = ({ theme }) => {
       <p className="font-serif font-normal">
         Beyond the screen, I'm a firm believer in the "Strong body, strong mind"
         lifestyle. Regularly hitting the gym and actively participating in
-        sports keep me energized, sharp and resilient.
+        sports keep me energized, sharp and resilient. Playing guitar is a
+        passion that complements my tech interests, offering a creative outlet
+        and a way to unwind.
       </p>
       <p className="font-serif font-normal">
         I embrace programming as a perpetual pursuit and always welcome a
