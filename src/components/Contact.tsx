@@ -21,14 +21,30 @@ type ContactProps = {
 };
 
 const Contact: React.FC<ContactProps> = ({ theme }) => {
+  const [emailNotification, setEmailNotification] = useState({
+    show: false,
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const showNotification = (message: string) => {
+    setEmailNotification({ show: true, message });
+    setTimeout(() => {
+      setEmailNotification({ show: false, message: "" });
+    }, 5000);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const form = e.currentTarget;
     const nameInput = form.elements.namedItem("name") as HTMLInputElement;
     const emailInput = form.elements.namedItem("email") as HTMLInputElement;
     const subjectInput = form.elements.namedItem("subject") as HTMLInputElement;
     const messageInput = form.elements.namedItem("message") as HTMLInputElement;
+
     const formData = {
       name: nameInput.value,
       email: emailInput.value,
@@ -45,11 +61,13 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
       )
       .then(
         () => {
-          alert("Email sent successfully!");
+          showNotification("Email sent successfully!");
+          setIsLoading(false);
         },
         (error) => {
           console.log("FAILED...", error);
-          alert("Failed to send email.");
+          showNotification("Failed to send email.");
+          setIsLoading(false);
         }
       );
   };
@@ -90,7 +108,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Name"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[90%] md:w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         />
         <input
           type="email"
@@ -99,7 +117,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Email"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[90%] md:w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         />
         <input
           type="text"
@@ -108,7 +126,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Subject"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[90%] md:w-[80%] bg-[#ffffff] dark:bg-darkGray font-normal outline-none hover:w-[81%] focus:w-[81%] border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         />
         <textarea
           name="message"
@@ -119,20 +137,32 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           placeholder="Message"
           required={true}
           autoComplete="off"
-          className="p-1 w-[80%] resize-none bg-[#ffffff] dark:bg-darkGray font-normal hover:w-[81%] focus:w-[81%] outline-none border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
+          className="p-1 w-[90%] md:w-[80%] resize-none bg-[#ffffff] dark:bg-darkGray font-normal hover:w-[81%] focus:w-[81%] outline-none border-b-2 hover:border-b-darkerRed dark:hover:border-b-lighterRed focus:border-b-darkerRed dark:focus:border-b-lighterRed focus:placeholder-[#ffffff] dark:focus:placeholder-darkGray ease duration-200"
         ></textarea>
-        <div className="w-[80%]">
+        <div className="flex items-center w-[90%] md:w-[80%] mt-5">
+          {emailNotification.show && (
+            <p className="px-1 md:px-2 py-1 bg-white dark:bg-lighterGray md:text-lg italic rounded-sm animate-fadeIn">
+              {emailNotification.message}
+            </p>
+          )}
           <button
             type="submit"
-            className="group flex gap-3 items-center mt-5 ml-auto px-2 border-l-4 hover:underline hover:border-darkerRed dark:hover:border-lighterRed ease duration-300"
+            className="group flex gap-3 items-center ml-auto px-2 py-1 rounded-sm hover:bg-white dark:hover:bg-lighterGray hover:underline ease duration-300"
           >
             <span className="font-normal">SEND</span>
-            <img
-              src={theme === "dark" ? darkSendImg : lightSendImg}
-              alt="Send arrow"
-              className="w-[18px] h-[18px] group-hover:scale-110"
-              draggable="false"
-            />
+            {!isLoading ? (
+              <img
+                src={theme === "dark" ? darkSendImg : lightSendImg}
+                alt="Send arrow"
+                className="w-[18px] h-[18px] group-hover:scale-110"
+                draggable="false"
+              />
+            ) : (
+              <div
+                title="Retrieving data..."
+                className="w-[18px] h-[18px] border-[5px] border-darkerBlue border-t-lighterGray dark:border-lighterBlue dark:border-t-white rounded-[50%] animate-spin"
+              ></div>
+            )}
           </button>
         </div>
       </form>
