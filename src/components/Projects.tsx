@@ -60,7 +60,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           );
         })}
       </Swiper>
-      <p className="flex items-center h-full lg:h-24">
+      <p className="flex items-center h-full lg:h-28">
         {projectInfo[sliderNumber].description}
       </p>
       <Swiper

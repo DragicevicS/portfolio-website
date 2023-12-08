@@ -5,7 +5,7 @@ export const projectInfo = [
     title: "TyperHub",
     images: imgLoad.projects.typerhub,
     description:
-      "TyperHub is a web app designed to help users improve their keyboard typing skills. It offers a user-friendly platform for typing lessons, practice texts, and tests. The app uses browser's local storage to keep track of user's progress, calculate average typing speed and accuracy and a few more things. Hosted on Netlify.",
+      "TyperHub is more than just a web app; it's a personal milestone. As my first 'big' project, it represents a significant step in my development journey. While aesthetics are often a primary concern, I've focused more on complexity and content for TyperHub. It might not win design awards, but it's the most sophisticated piece I've crafted to date. It's designed to help users enhance their typing skills with a suite of user-friendly lessons, practice texts, and tests. Leveraging the browser's local storage, TyperHub tracks progress, calculates average typing speeds and accuracy, among other metrics. It's hosted on Netlify, demonstrating my commitment to creating practical, real-world applications.",
     tools: [
       "html",
       "css",
@@ -22,7 +22,7 @@ export const projectInfo = [
     title: "Weather App",
     images: imgLoad.projects.weatherApp,
     description:
-      "The Weather App is a sleek, modern web application that provides real-time weather data from around the globe. Built with React and styled using Tailwind CSS, it offers a responsive and intuitive interface for users to quickly get the weather forecasts they need. The app is powered by the Weather API for accurate and up-to-date weather information.",
+      "The Weather App is a sleek and modern web application that elegantly presents real-time weather data from across the globe. Built with React and Tailwind CSS, it ensures a responsive and intuitive user experience. Beyond its functionality, this app represents a key learning curve in my development career. Although it's a smaller project, it has been instrumental in teaching me the intricacies of working with APIs and fetching data.",
     tools: ["html", "css", "javascript", "react", "tailwind", "vite"],
     url: "https://dragicevics.github.io/weather-app/",
     github: "https://github.com/DragicevicS/weather-app",
@@ -31,7 +31,7 @@ export const projectInfo = [
     title: "CV App",
     images: imgLoad.projects.CVapp,
     description:
-      "CV App is a web app for... making CVs. It will contains a few templates for editing and also a printing option.",
+      "CV App stands as a cornerstone in my journey as a developer. Initially crafted as one of my first React projects, it serves as a dynamic web application where users can create professional CVs with ease. It features an instant-render template that brings user inputs to life for a real-time preview. Currently, this app is undergoing a significant evolution; I am reworking it with TypeScript and the rapid build system Vite, moving away from plain JavaScript and Create React App. The upgrade includes an array of new templates and an overall refined design. This transition not only marks an improvement in the app's functionality but also in my own skill set.",
     tools: ["html", "css", "javascript", "react"],
     url: "",
     github: "https://github.com/DragicevicS/cv-application",
