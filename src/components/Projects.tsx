@@ -60,9 +60,6 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           );
         })}
       </Swiper>
-      <p className="flex items-center h-full lg:h-28">
-        {projectInfo[sliderNumber].description}
-      </p>
       <Swiper
         effect={"creative"}
         creativeEffect={{
@@ -97,6 +94,9 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           );
         })}
       </Swiper>
+      <p className="flex items-center h-full lg:h-28">
+        {projectInfo[sliderNumber].description}
+      </p>
       {lightbox.open && (
         <div
           className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50 lightbox-container cursor-zoom-out"

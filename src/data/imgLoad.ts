@@ -53,7 +53,7 @@ export const imgLoad = {
     css: { title: "CSS3", url: cssLogo },
     javascript: { title: "JavaScript", url: javascriptLogo },
     typescript: { title: "TypeScript", url: typescriptLogo },
-    tailwind: { title: "Tailwind", url: tailwindLogo },
+    tailwind: { title: "Tailwind CSS", url: tailwindLogo },
     react: { title: "React", url: reactLogo },
     vite: { title: "Vite", url: viteLogo },
     webpack: { title: "Webpack", url: webpackLogo },

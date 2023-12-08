@@ -67,8 +67,10 @@ const Skills: React.FC<SkillsProps> = () => {
           TypeScript
         </span>
         . Designs are brought to life with{" "}
-        <span className="text-darkerBlue dark:text-lighterBlue">Tailwind</span>,
-        but I'm also proficient in pure{" "}
+        <span className="text-darkerBlue dark:text-lighterBlue">
+          Tailwind CSS
+        </span>
+        , but I'm also proficient in pure{" "}
         <span className="text-darkerBlue dark:text-lighterBlue">CSS</span>.
       </p>
       <hr className="w-full md:w-5/6 text-darkerRed dark:text-lighterRed" />
