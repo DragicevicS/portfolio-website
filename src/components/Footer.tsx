@@ -1,6 +1,6 @@
 const Footer: React.FC = () => {
   return (
-    <footer className="flex flex-col items-center text-xs md:text-sm italic">
+    <footer className="flex flex-col items-center pb-2 text-xs md:text-sm italic">
       <p className="text-darkerBlue dark:text-lighterBlue text-center">
         This website was created using React, TypeScript and Tailwind with Vite.
       </p>
