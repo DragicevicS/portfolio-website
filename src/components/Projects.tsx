@@ -124,6 +124,26 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           ))}
         </div>
         <div className="flex gap-2">
+          <a
+            href={projectInfo[sliderNumber].github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerRed dark:hover:text-lighterRed ease duration-300"
+          >
+            <img
+              src={theme === "dark" ? darkGitHubImg : lightGitHubImg}
+              alt="GitHub"
+              className="w-5 h-5"
+              draggable="false"
+            />
+            Source Code
+            <img
+              src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
+              alt="Link in new tab"
+              className="w-[10px] h-[10px]"
+              draggable="false"
+            />
+          </a>
           {projectInfo[sliderNumber].url !== "" && (
             <a
               href={projectInfo[sliderNumber].url}
@@ -146,26 +166,6 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
               />
             </a>
           )}
-          <a
-            href={projectInfo[sliderNumber].github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 px-2 py-1 bg-white dark:bg-black rounded-sm hover:text-darkerRed dark:hover:text-lighterRed ease duration-300"
-          >
-            <img
-              src={theme === "dark" ? darkGitHubImg : lightGitHubImg}
-              alt="GitHub"
-              className="w-5 h-5"
-              draggable="false"
-            />
-            Source Code
-            <img
-              src={theme === "dark" ? darkLinkInNewImg : lightLinkInNewImg}
-              alt="Link in new tab"
-              className="w-[10px] h-[10px]"
-              draggable="false"
-            />
-          </a>
         </div>
       </div>
     </div>
