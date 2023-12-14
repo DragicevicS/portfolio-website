@@ -44,6 +44,7 @@ export const projectInfo = [
     tools: [
       "html",
       "css",
+      "react",
       "javascript",
       "typescript",
       "tailwind",

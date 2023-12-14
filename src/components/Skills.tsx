@@ -19,7 +19,7 @@ const Skills: React.FC<SkillsProps> = () => {
     "html",
     "css",
   ];
-  const secondSlideRow = ["git", "vite", "webpack", "npm", "jest"];
+  const secondSlideRow = ["git", "vite", "webpack", "npm", "vitest"];
   const thirdSlideRow = ["seo", "responsive", "linux", "netlify", "vscode"];
 
   return (
@@ -115,8 +115,8 @@ const Skills: React.FC<SkillsProps> = () => {
         for version control,{" "}
         <span className="text-darkerBlue dark:text-lighterBlue">npm</span> for
         the latest and secure dependencies, and{" "}
-        <span className="text-darkerBlue dark:text-lighterBlue">Jest</span> for
-        testing.
+        <span className="text-darkerBlue dark:text-lighterBlue">Vitest</span>{" "}
+        for testing.
       </p>
       <hr className="w-full md:w-5/6 text-darkerRed dark:text-lighterRed" />
       <Swiper
