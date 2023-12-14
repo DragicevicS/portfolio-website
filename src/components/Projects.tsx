@@ -94,7 +94,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           );
         })}
       </Swiper>
-      <p className="flex items-center h-full lg:h-28">
+      <p className="flex items-center h-full">
         {projectInfo[sliderNumber].description}
       </p>
       {lightbox.open && (
