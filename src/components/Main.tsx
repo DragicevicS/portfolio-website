@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import { RefObject } from "react";
 import About from "./About";
 import Skills from "./Skills";
 import Projects from "./Projects";

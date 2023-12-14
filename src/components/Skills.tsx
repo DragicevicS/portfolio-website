@@ -35,7 +35,7 @@ const Skills: React.FC<SkillsProps> = () => {
           slideShadows: false,
         }}
         autoplay={{
-          delay: 1495,
+          delay: 1500,
           pauseOnMouseEnter: true,
         }}
         className="w-full md:w-5/6"
@@ -130,7 +130,7 @@ const Skills: React.FC<SkillsProps> = () => {
           slideShadows: false,
         }}
         autoplay={{
-          delay: 1505,
+          delay: 1500,
           pauseOnMouseEnter: true,
         }}
         className="w-full md:w-5/6"
