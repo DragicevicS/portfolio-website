@@ -6,8 +6,7 @@ const Footer: React.FC = () => {
       </p>
       <p>
         Copyright{" "}
-        <span className="text-darkerRed dark:text-lighterRed ">&copy;</span>{" "}
-        2023{" "}
+        <span className="text-darkerRed dark:text-lighterRed">&copy;</span> 2023{" "}
         <a
           href="https://github.com/DragicevicS"
           target="_blank"

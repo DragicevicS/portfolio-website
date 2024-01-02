@@ -42,7 +42,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-3 px-8 lg:px-16 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm  cut-border">
+    <div className="flex flex-col items-center gap-3 px-8 lg:px-16 py-7 w-full bg-[#ffffff] dark:bg-darkGray text-justify text-sm cut-border">
       <Swiper
         grabCursor={true}
         navigation={true}
