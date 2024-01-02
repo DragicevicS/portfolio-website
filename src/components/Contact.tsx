@@ -93,12 +93,12 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
   };
 
   return (
-    <div className="flex flex-col xl:flex-row w-full mb-20 font-serif cut-border">
+    <div className="flex flex-col xl:flex-row w-full mb-20  cut-border">
       <form
         className="flex flex-col items-center gap-2 p-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-b-2 xl:border-r-2 border-darkerRed dark:border-lighterRed"
         onSubmit={handleSubmit}
       >
-        <h3 className="text-darkerBlue dark:text-lighterBlue">
+        <h3 className="text-darkerBlue dark:text-lighterBlue font-sans1">
           Lets get in touch
         </h3>
         <input
@@ -147,9 +147,9 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
           )}
           <button
             type="submit"
-            className="group flex gap-3 items-center ml-auto px-2 py-1 rounded-sm hover:bg-white dark:hover:bg-lighterGray hover:underline ease duration-300"
+            className="group flex gap-3 items-center ml-auto px-2 py-1 rounded-sm hover:bg-white dark:hover:bg-lighterGray ease duration-300"
           >
-            <span className="font-normal">SEND</span>
+            <span className="font-sans1">SEND</span>
             {!isLoading ? (
               <img
                 src={theme === "dark" ? darkSendImg : lightSendImg}
@@ -167,7 +167,9 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
         </div>
       </form>
       <div className="flex flex-col items-center gap-3 px-4 pt-2 pb-5 xl:w-1/2 bg-[#ffffff] dark:bg-darkGray max-xl:border-t-2 xl:border-l-2 border-darkerRed dark:border-lighterRed">
-        <h3 className="text-darkerRed dark:text-lighterRed">Contact info</h3>
+        <h3 className="text-darkerRed dark:text-lighterRed font-sans1">
+          Contact info
+        </h3>
         <p className="text-sm">
           Feel free to contact or check me out on other platforms:
         </p>

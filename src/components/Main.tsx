@@ -21,7 +21,7 @@ const Main: React.FC<MainProps> = ({ theme, sectionRefs }) => {
           ref={sectionRefs[i]}
           className="flex flex-col items-center gap-3 h-full w-full lg:w-3/5 mb-2 lg:mb-0 font-extrabold tracking-widest"
         >
-          <h2 className="text-center font-serif italic">
+          <h2 className="text-center text-lg  italic">
             {section.toUpperCase()}
           </h2>
           {section === "about" ? (

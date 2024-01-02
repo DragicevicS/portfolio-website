@@ -186,7 +186,7 @@ const Navigation: React.FC<NavProps> = ({
 
   return (
     <nav
-      className={`fixed top-0 flex gap-4 w-full lg:w-max lg:h-screen p-3 md:p-4 animate-fadeIn duration-300 ease ${
+      className={`fixed top-0 flex gap-4 w-full lg:w-max lg:h-screen p-3 md:p-4 font-sans1 animate-fadeIn duration-300 ease ${
         window.scrollY > 25 &&
         "max-lg:bg-[#ffffff] dark:max-lg:bg-darkGray z-50"
       }

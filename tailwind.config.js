@@ -15,8 +15,9 @@ export default {
       darkGray: "#181a1b",
     },
     fontFamily: {
-      sans: ["Tilt Neon", "sans-serif"],
-      serif: ["Pridi", "serif"],
+      sans1: ["Tilt Neon", "sans-serif"],
+      sans2: ["DM Sans", "sans-serif"],
+      serif1: ["Pridi", "serif"],
     },
     extend: {
       animation: {

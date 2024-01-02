@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ theme }) => {
       id="header"
       className="flex flex-col justify-center items-center gap-6 w-full h-screen animate-fadeIn"
     >
-      <h1 className="text-2xl md:text-4xl lg:text-7xl font-serif">
+      <h1 className="text-2xl md:text-4xl lg:text-7xl font-serif1">
         Stefan{" "}
         <span className="text-darkerBlue dark:text-lighterBlue">
           Dragićević

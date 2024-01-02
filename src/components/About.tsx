@@ -24,7 +24,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
 
   return (
     <div className="flex flex-col gap-4 px-8 lg:px-16 py-7 bg-[#ffffff] dark:bg-darkGray text-justify cut-border">
-      <p className="font-serif font-normal">
+      <p className=" font-normal">
         Welcome! I'm an aspiring frontend web developer. My coding journey began
         in 2015 when I discovered{" "}
         <a
@@ -60,14 +60,14 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         </a>{" "}
         in 2023, finessing my skills in TypeScript, and designing with Tailwind.
       </p>
-      <p className="font-serif font-normal">
+      <p className=" font-normal">
         Beyond the screen, I'm a firm believer in the "Strong body, strong mind"
         lifestyle. Regularly hitting the gym and actively participating in
         sports keep me energized, sharp and resilient. Playing guitar is a
         passion that complements my tech interests, offering a creative outlet
         and a way to unwind.
       </p>
-      <p className="font-serif font-normal">
+      <p className=" font-normal">
         I embrace programming as a perpetual pursuit and always welcome a
         challenge. If you believe we can create something impactful together,
         please don't hesitate to{" "}

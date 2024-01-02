@@ -23,7 +23,7 @@ const Skills: React.FC<SkillsProps> = () => {
   const thirdSlideRow = ["seo", "responsive", "linux", "netlify", "vscode"];
 
   return (
-    <div className="flex flex-col items-center gap-10 w-full px-8 py-7 bg-[#ffffff] dark:bg-darkGray text-justify font-serif cut-border">
+    <div className="flex flex-col items-center gap-10 w-full px-8 py-7 bg-[#ffffff] dark:bg-darkGray text-justify  cut-border">
       <Swiper
         modules={[EffectCoverflow, Autoplay]}
         effect={"coverflow"}
