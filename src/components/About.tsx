@@ -25,8 +25,8 @@ const About: React.FC<AboutProps> = ({ theme }) => {
   return (
     <div className="flex flex-col gap-4 px-8 lg:px-16 py-7 bg-[#ffffff] dark:bg-darkGray text-justify cut-border">
       <p className=" font-normal">
-        Welcome! I'm an aspiring frontend web developer. My coding journey began
-        in 2015 when I discovered{" "}
+        Welcome! I'm an aspiring software developer. My coding journey began in
+        2015 when I discovered{" "}
         <a
           href="https://www.codecademy.com/"
           target="_blank"
