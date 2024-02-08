@@ -16,6 +16,7 @@ const Skills: React.FC<SkillsProps> = () => {
     "javascript",
     "typescript",
     "tailwind",
+    "bootstrap",
     "html",
     "css",
   ];
@@ -67,8 +68,10 @@ const Skills: React.FC<SkillsProps> = () => {
           TypeScript
         </span>
         . Designs are brought to life with{" "}
+        <span className="text-darkerBlue dark:text-lighterBlue">Tailwind </span>
+        and{" "}
         <span className="text-darkerBlue dark:text-lighterBlue">
-          Tailwind CSS
+          Bootstrap CSS
         </span>
         , but I'm also proficient in pure{" "}
         <span className="text-darkerBlue dark:text-lighterBlue">CSS</span>.

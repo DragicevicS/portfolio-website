@@ -2,7 +2,8 @@ import typerhubImg1 from "../assets/projects/typerhub/typerhub-1.png";
 import typerhubImg2 from "../assets/projects/typerhub/typerhub-2.png";
 import typerhubImg3 from "../assets/projects/typerhub/typerhub-3.png";
 import typerhubImg4 from "../assets/projects/typerhub/typerhub-4.png";
-import cvAppImg from "../assets/projects/cv-app.png";
+import cvAppImg1 from "../assets/projects/cvc/cv-app1.png";
+import cvAppImg2 from "../assets/projects/cvc/cv-app2.png";
 import weatherAppImg1 from "../assets/projects/weather-app/weather-app-1.png";
 import weatherAppImg2 from "../assets/projects/weather-app/weather-app-2.png";
 import memoryCardImg from "../assets/projects/small/memory-card.png";
@@ -17,6 +18,7 @@ import cssLogo from "../assets/logos/css-logo.svg";
 import javascriptLogo from "../assets/logos/javascript-logo.svg";
 import typescriptLogo from "../assets/logos/typescript-logo.svg";
 import tailwindLogo from "../assets/logos/tailwind-logo.svg";
+import bootstrapLogo from "../assets/logos/bootstrap.svg";
 import reactLogo from "../assets/logos/react-logo.svg";
 import viteLogo from "../assets/logos/vite-logo.svg";
 import webpackLogo from "../assets/logos/webpack-logo.svg";
@@ -36,7 +38,7 @@ type LogoType = {
 export const imgLoad = {
   projects: {
     typerhub: [typerhubImg1, typerhubImg2, typerhubImg3, typerhubImg4],
-    CVapp: [cvAppImg],
+    CVapp: [cvAppImg1, cvAppImg2],
     weatherApp: [weatherAppImg1, weatherAppImg2],
     smallProjects: [
       memoryCardImg,
@@ -54,6 +56,7 @@ export const imgLoad = {
     javascript: { title: "JavaScript", url: javascriptLogo },
     typescript: { title: "TypeScript", url: typescriptLogo },
     tailwind: { title: "Tailwind CSS", url: tailwindLogo },
+    bootstrap: { title: "Bootstrap CSS", url: bootstrapLogo },
     react: { title: "React", url: reactLogo },
     vite: { title: "Vite", url: viteLogo },
     webpack: { title: "Webpack", url: webpackLogo },

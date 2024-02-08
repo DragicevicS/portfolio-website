@@ -31,9 +31,17 @@ export const projectInfo = [
     title: "CV App",
     images: imgLoad.projects.CVapp,
     description:
-      "CV App stands as a cornerstone in my journey as a developer. Initially crafted as one of my first React projects, it serves as a dynamic web application where users can create professional CVs with ease. It features an instant-render template that brings user inputs to life for a real-time preview. Currently, this app is undergoing a significant evolution; I am reworking it with TypeScript and the rapid build system Vite, moving away from plain JavaScript and Create React App. The upgrade includes an array of new templates and an overall refined design. This transition not only marks an improvement in the app's functionality but also in my own skill set.",
-    tools: ["html", "css", "javascript", "react"],
-    url: "",
+      "CV App stands as a cornerstone in my journey as a developer. Initially crafted as one of my first React projects, it serves as a dynamic web application where users can create professional CVs with ease. It features an instant-render template that brings user inputs to life for a real-time preview. Currently, this app is undergoing a significant evolution; I am reworking it with TypeScript and the rapid build system Vite, moving away from plain JavaScript and Create React App. The upgrade includes an array of new templates and an overall refined design. This transition not only marks an improvement in the app's functionality but also in my own skill set. You can see my current progress of the rework in the second image and live version using the link below.",
+    tools: [
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "react",
+      "tailwind",
+      "vite",
+    ],
+    url: "https://dragicevics.github.io/cvc/",
     github: "https://github.com/DragicevicS/cv-application",
   },
   {
