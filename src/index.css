@@ -90,5 +90,5 @@
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  @apply text-2xl;
+  @apply text-2xl animate-pulse;
 }
