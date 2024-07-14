@@ -15,6 +15,7 @@ const Skills: React.FC<SkillsProps> = () => {
     "react",
     "javascript",
     "typescript",
+    "wordpress",
     "tailwind",
     "bootstrap",
     "html",
@@ -73,8 +74,11 @@ const Skills: React.FC<SkillsProps> = () => {
         <span className="text-darkerBlue dark:text-lighterBlue">
           Bootstrap CSS
         </span>
-        , but I'm also proficient in pure{" "}
-        <span className="text-darkerBlue dark:text-lighterBlue">CSS</span>.
+        , but I'm proficient in pure{" "}
+        <span className="text-darkerBlue dark:text-lighterBlue">CSS</span> as
+        well. Also, I have experience working with{" "}
+        <span className="text-darkerBlue dark:text-lighterBlue">WordPress</span>
+        .
       </p>
       <hr className="w-full md:w-5/6 text-darkerRed dark:text-lighterRed" />
       <Swiper

@@ -17,8 +17,9 @@ import htmlLogo from "../assets/logos/html-logo.svg";
 import cssLogo from "../assets/logos/css-logo.svg";
 import javascriptLogo from "../assets/logos/javascript-logo.svg";
 import typescriptLogo from "../assets/logos/typescript-logo.svg";
+import wordPressLogo from "../assets/logos/wordpress-logo.svg";
 import tailwindLogo from "../assets/logos/tailwind-logo.svg";
-import bootstrapLogo from "../assets/logos/bootstrap.svg";
+import bootstrapLogo from "../assets/logos/bootstrap-logo.svg";
 import reactLogo from "../assets/logos/react-logo.svg";
 import viteLogo from "../assets/logos/vite-logo.svg";
 import webpackLogo from "../assets/logos/webpack-logo.svg";
@@ -55,6 +56,7 @@ export const imgLoad = {
     css: { title: "CSS3", url: cssLogo },
     javascript: { title: "JavaScript", url: javascriptLogo },
     typescript: { title: "TypeScript", url: typescriptLogo },
+    wordpress: { title: "WordPress", url: wordPressLogo },
     tailwind: { title: "Tailwind CSS", url: tailwindLogo },
     bootstrap: { title: "Bootstrap CSS", url: bootstrapLogo },
     react: { title: "React", url: reactLogo },
